@@ -45,14 +45,30 @@ class console{
 		return $this->datesortie = $newDatesortie;
 	}
 }
+//info bdd
+$mysql_user = 'root';
+$mysql_pass = '';
+$mysql_db = 'site_jv';
+//connexion a la bdd
+try {
+    $dbconnect = new PDO('mysql:host=localhost;dbname='.$mysql_db, $mysql_user, $mysql_pass, array(PDO::ATTR_PERSISTENT => true));
+	$dbrequete = $dbconnect->query('SELECT * from console');
+    foreach($dbrequete as $row) {
+		$ps1 = new console($row['id'], $row['nom'], $row['constructeur'], $row['prix'], $row['dateSortie']);
+		echo $ps1->getId()."<br />";
+		echo $ps1->getNom()."<br />";
+		echo $ps1->getConstructeur()."<br />";
+		echo $ps1->getPrix()." euros<br />";
+		echo $ps1->getDatesortie()."<br />";
+		echo "<br />";
+	}
+    $dbrequete = null;
+	//
+} catch (PDOException $e) {
+    print "Erreur : " . $e->getMessage() . "<br/>";
+    die();
+}
 
-$ps1 = new console(1, "PS1", "Sony", 397, "19941203");
-echo $ps1->getId()."<br />";
-echo $ps1->getNom()."<br />";
-echo $ps1->getConstructeur()."<br />";
-echo $ps1->getPrix()." euros<br />";
-echo $ps1->getDatesortie()."<br />";
-echo "<br />";
 //modification du prix du jeu
 echo "--- modification du prix du jeu ---<br /><br />";
 $ps1->setPrix(35);
@@ -62,62 +78,7 @@ echo $ps1->getNom()."<br />";
 echo $ps1->getConstructeur()."<br />";
 echo $ps1->getPrix()." euros<br />";
 echo $ps1->getDatesortie()."<br />";
-/*
-class Perso {
-    const PV_INITIAL = 2000;
-    private $pv;
 
-    public function __construct($pv = true) { // Paramètre optionnel
-        if (!is_numeric($pv) || $pv < 0 || $pv > 100000000)
-            $this->pv = self::PV_INITIAL;
-        else
-            $this->pv = $pv;
-    }
 
-    // Accesseurs
-    public function getPv() {
-        return $this->pv;
-    }
-	//verifier si vivant
-    public function isDead() {
-        return $this->pv == 0;
-    }
-	//tuer personnage
-    public function Tuer() {
-        return $this->pv = 0;
-    }
-}
 
-//fonction verification si vivant
-function isAlive($personnage){
-	if($personnage->isDead()): echo 'Vous etes mort<br />';
-	else: echo 'Vous etes vivant<br />';
-	endif;
-}
-
-// Création d'une classe enfant de Perso
-class Magicien extends Perso {
-    private $magie;
-}
-
-// Création d'une instance de classe
-$perso = new Perso(1300);
-$perso2 = new Perso();
-// Utilisation de l'objet
-echo 'Votre personnage a ' . $perso->getPV() . ' PV.<br />';
-echo 'Votre personnage2 a ' . $perso2->getPV() . ' PV.<br />';
-
-isAlive($perso2);
-
-$perso2->Tuer();
-
-echo 'Votre personnage2 a ' . $perso2->getPV() . ' PV.<br />';
-isAlive($perso2);
-
-// Constantes de classes
-echo 'Le PV par défaut attribué à un nouveau personnage est de ' . Perso::PV_INITIAL . '.';
-
-// Destruction de l'objet
-unset($perso);
-*/
 ?>
