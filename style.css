@@ -1,0 +1,34 @@
+/*------------------------- style.css --------------------------*/
+body {
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+	padding: auto;
+}
+
+form {
+	width: 400px;
+	margin: auto;
+	padding: auto;
+}
+fieldset {
+	padding: 40px;
+}
+
+
+h2 {
+	text-align: center;
+	color: limegreen;
+	font-size: 1.3em;
+}
+
+span {
+	margin: 30%;
+	padding: auto;
+	text-align: center;
+}
+.green {
+	color: limegreen;
+}
+
+.error {
+	color: red;
+}
