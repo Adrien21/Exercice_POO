@@ -11,7 +11,7 @@
 			$pass = "";
 
 			try {
-				$dbh = new PDO("mysql:dbname=site_JV;host=localhost", $user, $pass);
+				$dbh = new PDO("mysql:dbname=site_jv;host=localhost", $user, $pass);
 			} catch (PDOException $e) {
 				echo 'Echec de la connection : ' .$e->getMessage();
 			}
@@ -27,7 +27,7 @@
 
 			// Création de compte
 			// Vérification de l'existence du pseudo
-			$resultats = $dbh->query("SELECT pseudo FROM utilisateurs");
+			$resultats = $dbh->query("SELECT pseudo FROM user");
 			$resultats->setFetchMode(PDO::FETCH_OBJ);
 			$array_utilisateur = [];
 			while ($resultat = $resultats->fetch()) {
@@ -47,7 +47,7 @@
 					echo "<br/><a href='inscription.html'> << retour </a>";
 				} else {
 					// Implémentation dans la BDD
-					$dbh->exec("INSERT INTO utilisateurs (pseudo, mdp, nom, prenom, email, type) VALUES ('" .$pseudo ."', '" .password_hash($mdp, PASSWORD_DEFAULT) ."', '" .$nom ."', '" .$prenom ."', '" .$email ."', 'membre')");
+					$dbh->exec("INSERT INTO user (pseudo, mdp, nom, prenom, email, type) VALUES ('" .$pseudo ."', '" .password_hash($mdp, PASSWORD_DEFAULT) ."', '" .$nom ."', '" .$prenom ."', '" .$email ."', 'membre')");
 					echo "Vous êtes inscrit";
 				}
 			} else {
