@@ -12,7 +12,7 @@ class console{
     }
 	//getter
 	public function __get($variable){
-		if($variable != "id"): return $this->$variable;
+		if(isset($this->$variable) && $variable != "id"): return $this->$variable;
 		endif;
 	}
 	/*
