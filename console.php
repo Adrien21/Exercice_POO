@@ -1,5 +1,5 @@
 <?php
-class console{
+/*class console{
 	//const NOM = "PS1", CONSTRUCTEUR = "Sony", DATESORTIE = "19941203";
 	private $id, $nom, $constructeur, $prix, $dateSortie;
 
@@ -45,39 +45,32 @@ class console{
 		return $this->datesortie = $newDatesortie;
 	}
 }
+*/
 //info bdd
-$mysql_user = 'root';
-$mysql_pass = '';
-$mysql_db = 'site_jv';
+
 //connexion a la bdd
-try {
-    $dbconnect = new PDO('mysql:host=localhost;dbname='.$mysql_db, $mysql_user, $mysql_pass, array(PDO::ATTR_PERSISTENT => true));
-	$dbrequete = $dbconnect->query('SELECT * from console');
-    foreach($dbrequete as $row) {
-		$ps1 = new console($row['id'], $row['nom'], $row['constructeur'], $row['prix'], $row['dateSortie']);
-		echo $ps1->getId()."<br />";
-		echo $ps1->getNom()."<br />";
-		echo $ps1->getConstructeur()."<br />";
-		echo $ps1->getPrix()." euros<br />";
-		echo $ps1->getDatesortie()."<br />";
-		echo "<br />";
-	}
-    $dbrequete = null;
-	//
-} catch (PDOException $e) {
-    print "Erreur : " . $e->getMessage() . "<br/>";
-    die();
-}
+include('bdd_connect.php');
 
-//modification du prix du jeu
-echo "--- modification du prix du jeu ---<br /><br />";
-$ps1->setPrix(35);
+//nouvel objet connexion
+$db = new bddConnect('ma');
 
-echo $ps1->getId()."<br />";
-echo $ps1->getNom()."<br />";
-echo $ps1->getConstructeur()."<br />";
-echo $ps1->getPrix()." euros<br />";
-echo $ps1->getDatesortie()."<br />";
+//envoi la requete a l'objet connexion
+$data = $db->query('SELECT * from console') ;
+//affiche le resultat
+var_dump ($data);
+
+//parcours les objets du resultat et en affiche chaque elements
+foreach($db->query('SELECT * from console') as $data){
+	echo $data->id."<br />";
+	echo $data->nom."<br />";
+	echo $data->constructeur."<br />";
+	echo $data->prix."<br />";
+	echo $data->dateSortie."<br />";
+	echo "<br />";
+	
+	$data->prix = 10;
+	echo $data->prix."<br />";
+};
 
 
 
