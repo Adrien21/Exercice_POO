@@ -63,6 +63,7 @@ CREATE TABLE IF NOT EXISTS `site_JV`.`JeuDlc` (
   `dateSortie` DATE NOT NULL,
   `prix` DECIMAL NOT NULL,
   `pegi` ENUM('3', '7', '12', '16', '18') NOT NULL,
+  `description` VARCHAR(255) NOT NULL,
   `idJeuParent` INT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_jeuDlc_jeuDlc1_idx` (`idJeuParent` ASC),
