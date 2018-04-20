@@ -51,7 +51,8 @@
 				}
 				// Vérification du mot de passe
 				if (password_verify($mdp, $ar_identification_MDP)) {
-					echo "Vous êtes connecté !";
+					echo "<h1>Vous êtes connecté !</h1>Vous serez redirigé dans 3 secondes";
+					header("refresh:3;url=userinterface.php");
 				} else {
 					echo "Mot de passe invalide";
 					echo "<br/><a href='connexion.html'> << retour à la page de connexion </a>";
