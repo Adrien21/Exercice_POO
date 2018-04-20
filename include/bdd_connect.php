@@ -47,13 +47,13 @@ class bddConnect{
 	
 	public function query($requete){
 		//n'executer que les SELECT
-		if(strpos($requete, "SELECT") == 0):
+		//if(strpos($requete, "SELECT") === 0):
 			$req = $this->getPDO()->query($requete);
 			$data = $req->fetchAll(PDO::FETCH_OBJ);
 
-		else: 
-			$data = ''; 
-		endif;
+		//else: 
+		//	$data = ''; 
+		//endif;
 		return $data;
 	}
 }
