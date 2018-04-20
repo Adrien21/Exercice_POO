@@ -20,8 +20,9 @@ class jeuDlc {
     //getter - fonctions qui retournent les valeurs de la BDD 
  	//acces aux attributs auquels on ne peux theoriquement pas accéder
 	public function __get($variable){
-		if(isset($this->$variable) && $variable != "id"): 
-			//on donne acces a ceux-ci
+		//if(isset($this->$variable) && $variable != "id"): 
+		if(isset($this->$variable)): 
+			//on donne acces auw attributs qui existent
 			return $this->$variable;
 		else:
 			echo "L'attribut ".$variable." n'existe pas !<br />";
