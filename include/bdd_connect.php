@@ -8,11 +8,25 @@ class bddConnect{
 	private $pdo;
 	
 	//constructeur de l'objet avec 4 parametres : base, utilisateur, mdp, adresse du site
-	public function __construct($mysql_db = 'site_jv', $mysql_user = 'root', $mysql_pass = '', $mysql_server = '127.0.0.1'){
+	public function __construct($mysql_db, $mysql_user, $mysql_pass, $mysql_server){
 		$this->mysql_db = $mysql_db;
 		$this->mysql_user = $mysql_user;
 		$this->mysql_pass = $mysql_pass;
 		$this->mysql_server = $mysql_server;
+	}
+	//destruction de l'objet
+	public function __destruct(){
+		echo 'Destruction de MaClasse<br />';
+	}
+	//getter
+	//acces aux attributs auquels on ne peux theoriquement pas accéder
+	public function __get($variable){
+		echo "L'attribut ".$variable." n'est pas accessible!<br />";
+	}
+	//setter
+	//bloquer l'ajout d'attributs
+	public function __set($nom, $valeur){
+		echo "Impossible d'enregirter l'attribut ".$nom."<br />";
 	}
 	//fonction privee pour la connexion
 	private function getPDO(){
@@ -32,8 +46,14 @@ class bddConnect{
 	}
 	
 	public function query($requete){
-		$req = $this->getPDO()->query($requete);
-		$data = $req->fetchAll(PDO::FETCH_OBJ);
+		//n'executer que les SELECT
+		if(strpos($requete, "SELECT") == 0):
+			$req = $this->getPDO()->query($requete);
+			$data = $req->fetchAll(PDO::FETCH_OBJ);
+
+		else: 
+			$data = ''; 
+		endif;
 		return $data;
 	}
 }
