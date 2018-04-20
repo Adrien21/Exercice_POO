@@ -24,7 +24,7 @@ $db = null;
 
 //var_dump ($dbrequete);
 foreach($dbrequete as $row) {
-	$jeu = new jeudlc($row->id, $row->nom, $row->editeur, $row->dev, $row->dateSortie, $row->prix, $row->pegi, $row->description);
+	$jeu = new jeudlc($row->id, $row->nom, $row->editeur, $row->dev, $row->dateSortie, $row->prix, $row->pegi, $row->description, $row->idJeuParent);
 	echo $jeu->id."<br />";
 	echo $jeu->nom."<br />";
 	echo $jeu->editeur."<br />";
@@ -33,6 +33,7 @@ foreach($dbrequete as $row) {
 	echo $jeu->prix." euros<br />";
 	echo $jeu->pegi."<br />";
 	echo $jeu->description."<br />";
+	echo $jeu->idJeuParent."<br />";
 	echo "<hr /><br />";
 }
 
@@ -42,11 +43,7 @@ foreach($dbrequete as $row) {
 echo "--- modification du prix du jeu ---<br /><br />";
 $jeu->setPrix(35)
 	->setPegi(10);
-// echo $ps1->id."<br />";
-// echo $ps1->nom."<br />";
-// echo $ps1->getConstructeur()."<br />";
-// echo $ps1->getPrix()." euros<br />";
-// echo $ps1->getDatesortie()."<br />";
+
 	echo $jeu->id."<br />";
 	echo $jeu->nom."<br />";
 	echo $jeu->editeur."<br />";
@@ -55,6 +52,7 @@ $jeu->setPrix(35)
 	echo $jeu->prix." euros<br />";
 	echo $jeu->pegi."<br />";
 	echo $jeu->description."<br />";
+	echo $jeu->idJeuParent."<br />";
 	echo "<hr /><br />";
 ?>
     
