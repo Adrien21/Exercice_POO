@@ -1,7 +1,8 @@
 <?php
 	// Connection à la BDD
-	include('bdd_connect.php');
-	$db = new bddConnect();
+	require_once("../include/bdd_id.php");
+	require_once("../include/bdd_connect.php");
+	$db = new bddConnect($mysql_db, $mysql_user, $mysql_pass, $mysql_server);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
