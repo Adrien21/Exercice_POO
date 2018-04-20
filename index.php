@@ -70,19 +70,18 @@
 									echo 'DLC de : '.$arrJeuParent[0];
 								}
 								
-								$rq2 = $connexion->query('SELECT dlc.nom FROM jeudlc jeu JOIN jeudlc dlc WHERE dlc.idJeuParent = jeu.id AND jeu.nom = "jeu3"');
+								$rq2 = $connexion->query('SELECT dlc.nom FROM jeudlc jeu JOIN jeudlc dlc WHERE dlc.idJeuParent = jeu.id AND jeu.nom = "'.$_POST['jeuChoisi'].'"');
 								$arrDlc = $rq2->fetch_all(MYSQLI_ASSOC);
 								
 								//var_dump($arrDlc);
-								//echo $arrDlc;
-								echo $arrDlc[0][1];
-								
-								echo "DLC's : ";
-								/*foreach($arrDlc as $dlc){
-									
-									echo $dlc.', ';
-								}*/
-								
+								//echo $arrDlc[0]['nom'];
+								if(!empty($arrDlc[0]['nom'])){
+									echo "DLC's : ";
+									foreach($arrDlc as $dlc){
+										
+										echo $dlc['nom'].', ';
+									}
+								}
 							?>
 						</p>
 						<p id="dateSortie">
