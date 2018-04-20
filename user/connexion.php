@@ -7,14 +7,9 @@
 	<body>
 		<?php
 			// Connection à la BDD
-			$user = "root";
-			$pass = "";
-
-			try {
-				$dbh = new PDO("mysql:dbname=site_jv;host=localhost", $user, $pass);
-			} catch (PDOException $e) {
-				echo 'Echec de la connection : ' .$e->getMessage();
-			}
+			require_once("../include/bdd_id.php");
+			require_once("../include/bdd_connect.php");
+			$db = new bddConnect($mysql_db, $mysql_user, $mysql_pass, $mysql_server);
 
 			// Déclaration des variables
 			$pseudo = $_POST['pseudo'];
@@ -23,40 +18,33 @@
 
 			// Connection au compte
 			// Récupération des pseudo
-			$identification_P = $dbh->query("SELECT pseudo FROM user WHERE pseudo='" .$pseudo ."'");
-			$identification_P->setFetchMode(PDO::FETCH_OBJ);
-			$ar_identification_P = "";
-			while ($resultat = $identification_P->fetch()) {
-				$ar_identification_P .= ($resultat->pseudo);
+			$identification_P = $db->query("SELECT pseudo FROM user WHERE pseudo='" .$pseudo ."'");
+			$ar_identification_P = [];
+			foreach ($identification_P as $recherche) {
+				array_push($ar_identification_P, ($recherche->pseudo));
 			}
 			
 			// Vérification de l'existence du pseudo
-			if ($ar_identification_P == $pseudo) {
-				$compteur++;
-			}
-
-			// Si aucun pseudo n'est identique (compteur = 0), redirection vers la création de compte
-			if ($compteur == 0) {
-				echo "<span class='error'>Erreur : ce pseudo n'existe pas, veuillez recommencer la saisie ou vous inscrire</span><br/>";
-				echo "<br/><a href='connexion.html'> << retour à la page de connexion </a>";
-				echo "<br/><a href='inscription.html'> << aller à la page d'inscription </a>";
-				exit;
-			} else {
-				// Sinon, récupération du mot de passe
-				$identification_MDP = $dbh->query("SELECT mdp FROM user WHERE pseudo='" .$pseudo ."'");
-				$identification_MDP->setFetchMode(PDO::FETCH_OBJ);
-				$ar_identification_MDP = "";
-				while ($resultat = $identification_MDP->fetch()) {
-					$ar_identification_MDP .= ($resultat->mdp);
+			if (array_key_exists('0', $ar_identification_P)) {
+				// Récupération du mot de passe si la clé [0] existe
+				$identification_MDP = $db->query("SELECT mdp FROM user WHERE pseudo='" .$pseudo ."'");
+				$ar_identification_MDP = [];
+				foreach ($identification_MDP as $recherche) {
+					array_push($ar_identification_MDP, ($recherche->mdp));
 				}
 				// Vérification du mot de passe
-				if (password_verify($mdp, $ar_identification_MDP)) {
+				if (password_verify($mdp, $ar_identification_MDP[0])) {
 					echo "<h1>Vous êtes connecté !</h1>Vous serez redirigé dans 3 secondes";
 					header("refresh:3;url=userinterface.php");
 				} else {
 					echo "Mot de passe invalide";
 					echo "<br/><a href='connexion.html'> << retour à la page de connexion </a>";
 				}
+			} else {
+				echo "<span class='error'>Erreur : ce pseudo n'existe pas, veuillez recommencer la saisie ou vous inscrire</span><br/>";
+				echo "<br/><a href='connexion.html'> << retour à la page de connexion </a>";
+				echo "<br/><a href='inscription.html'> << aller à la page d'inscription </a>";
+				exit;
 			}
 		?>
 	</body>
