@@ -69,8 +69,9 @@ class user{
 	}
 }
 
-include('bdd_connect.php');
-$db = new bddConnect();
+require_once("../include/bdd_id.php");
+require_once("../include/bdd_connect.php");
+$db = new bddConnect($mysql_db, $mysql_user, $mysql_pass, $mysql_server);
 
 $requeteUtilisateur = $db->query('SELECT id, nom, prenom, pseudo, email, type FROM user');
 var_dump("<pre>", $requeteUtilisateur, "</pre>");
