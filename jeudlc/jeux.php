@@ -33,7 +33,6 @@ foreach($dbrequete as $row) {
 	echo $jeu->prix." euros<br />";
 	echo $jeu->pegi."<br />";
 	echo $jeu->description."<br />";
-	echo $jeu->idJeuParent."<br />";
 	echo "<hr /><br />";
 }
 
