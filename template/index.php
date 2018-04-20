@@ -1,10 +1,14 @@
-<?php commande pour aller chercher le header ?>
+ <?php include("header.php"); ?>
 
 
 
 
         
         <main>
+            
+            
+            
+            <h1> TEST Main </h1>
             
             <!--   /////////////////////////
                     On rajoutera ici les requètes des objets
@@ -16,4 +20,4 @@
         </main>
 
 
-<?php commande pour aller chercher le footer ?>
+ <?php include("footer.php"); ?>
