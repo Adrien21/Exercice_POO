@@ -47,14 +47,27 @@ class bddConnect{
 	
 	public function query($requete){
 		//n'executer que les SELECT
-		if(strpos($requete, "SELECT") == 0):
+		if(stripos($requete, "SELECT") === 0):
 			$req = $this->getPDO()->query($requete);
 			$data = $req->fetchAll(PDO::FETCH_OBJ);
+		
+		elseif(stripos($requete, "UPDATE") === 0): 
+			$req = $this->getPDO()->query($requete); 
+			
+			$tab = explode(' ', $requete, 3);
+			$where = substr($requete, stripos($requete, 'WHERE'));
+			$select = "SELECT * FROM ".$tab['1']." ".$where;
 
-		else: 
-			$data = ''; 
+			$req = $this->getPDO()->query($select);
+			$data = $req->fetchAll(PDO::FETCH_OBJ);
+		
+		elseif(strpos($requete, "INSERT") === 0):
+			$req = $this->getPDO()->query($requete);
+			$data = '';
+			
 		endif;
 		return $data;
 	}
+
 }
 ?>
