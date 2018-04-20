@@ -41,26 +41,45 @@ $requete = "UPDATE `jeudlc` SET `nom` = 'jeu1-1' WHERE `jeudlc`.`id` = 1";
 //$requete = "INSERT INTO `jeudlc` (`id`, `nom`, `editeur`, `dev`, `dateSortie`, `prix`, `pegi`, `description`, `idJeuParent`) VALUES (NULL, 'jeu97', 'edit1', 'dev2', '2018-04-20', '55.99', '12', 'blablablbala', '4')";
 $newJeu = new jeudlc(NULL, 'jeu97', 'edit1', 'dev2', '2018-04-20', '55.99', '12', 'blablablbala', '4');
 $requete = "INSERT INTO `jeudlc` (`nom`, `editeur`, `dev`, `dateSortie`, `prix`, `pegi`, `description`, `idJeuParent`) VALUES ('".$newJeu->nom."', '".$newJeu->editeur."', '".$newJeu->dev."', '".$newJeu->dateSortie."', '".$newJeu->prix."', '".$newJeu->pegi."', '".$newJeu->description."', ".$newJeu->idJeuParent.")";
-//echo $requete;
 
-$dbrequete = $db->query($requete);
+//$dbrequete = $db->query($requete);
 
+//nouvel objet jeu pour comparer si modification => clone d'objet
+$jeu = clone $newJeu;
 
+if($jeu == $newJeu): echo "identique<br />";
+else: echo "different<br />";
+endif;
+echo $newJeu->id."<br />";
+echo $newJeu->nom."<br />";
+echo $newJeu->editeur."<br />";
+echo $newJeu->dev."<br />";
+echo $newJeu->dateSortie."<br />";
+echo $newJeu->prix." euros<br />";
+echo $newJeu->pegi."<br />";
+echo $newJeu->description."<br />";
+echo $newJeu->idJeuParent."<br />";
+echo "<hr /><br />";
 // //modification du prix du jeu
 echo "--- modification du prix du jeu ---<br /><br />";
-$jeu->setPrix(35)
-	->setPegi(10);
+$newJeu->setPrix(35)
+	   ->setPegi(10);
 
-echo $jeu->id."<br />";
-echo $jeu->nom."<br />";
-echo $jeu->editeur."<br />";
-echo $jeu->dev."<br />";
-echo $jeu->dateSortie."<br />";
+echo $newJeu->id."<br />";
+echo $newJeu->nom."<br />";
+echo $newJeu->editeur."<br />";
+echo $newJeu->dev."<br />";
+echo $newJeu->dateSortie."<br />";
+echo $newJeu->prix." euros<br />";
 echo $jeu->prix." euros<br />";
-echo $jeu->pegi."<br />";
-echo $jeu->description."<br />";
-echo $jeu->idJeuParent."<br />";
+echo $newJeu->pegi."<br />";
+echo $newJeu->description."<br />";
+echo $newJeu->idJeuParent."<br />";
 echo "<hr /><br />";
+
+if($jeu == $newJeu): echo "identique<br />";
+else: echo "different<br />";
+endif;
 
 //destruction de l'objet bddConnect
 $db = null;
