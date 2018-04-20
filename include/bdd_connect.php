@@ -65,7 +65,7 @@ class bddConnect{
 			$req = $this->getPDO()->query($requete);
 			$data = '';
 		else:
-		echo "SQL non reconnu ou non autorisé !";
+		echo "SQL non reconnu ou non autorisé !<br />";
 			$data = '';
 		endif;
 		return $data;
