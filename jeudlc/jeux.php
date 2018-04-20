@@ -8,12 +8,12 @@
 <body>
 <?php
 //connexion a la bdd
-require_once("bdd_id.php");
-require_once("bdd_connect.php");
+require_once("../include/bdd_id.php");
+require_once("../include/bdd_connect.php");
 $db = new bddConnect($mysql_db, $mysql_user, $mysql_pass, $mysql_server);
 
 //appel objet jeu
-require_once("class_jeu.php");
+require_once("class_jeux.php");
 
 $dbrequete = $db->query('SELECT * from jeudlc');
 var_dump ($dbrequete);
