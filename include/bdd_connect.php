@@ -50,7 +50,7 @@ class bddConnect{
 		if(stripos($requete, "SELECT") === 0):
 			$req = $this->getPDO()->query($requete);
 			$data = $req->fetchAll(PDO::FETCH_OBJ);
-		
+		//execute les UPDATE
 		elseif(stripos($requete, "UPDATE") === 0): 
 			$req = $this->getPDO()->query($requete); 
 			
@@ -60,11 +60,13 @@ class bddConnect{
 
 			$req = $this->getPDO()->query($select);
 			$data = $req->fetchAll(PDO::FETCH_OBJ);
-		
+		//execute les INSERT
 		elseif(strpos($requete, "INSERT") === 0):
 			$req = $this->getPDO()->query($requete);
 			$data = '';
-			
+		else:
+		echo "SQL non reconnu ou non autorisé !<br />";
+			$data = '';
 		endif;
 		return $data;
 	}
