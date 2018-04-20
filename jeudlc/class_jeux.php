@@ -3,10 +3,10 @@
 class jeuDlc {
 
     // déclaration des variables
-    private $id, $nom, $editeur, $dev, $dateSortie, $prix, $pegi, $description;
+    private $id, $nom, $editeur, $dev, $dateSortie, $prix, $pegi, $description, $idJeuParent;
     
     //construction de l'objet
-    public function __construct($id, $nom, $editeur, $dev, $dateSortie, $prix, $pegi, $description) {
+    public function __construct($id, $nom, $editeur, $dev, $dateSortie, $prix, $pegi, $description, $idJeuParent) {
         $this->id = $id;
         $this->nom = $nom;
         $this->editeur = $editeur;
@@ -15,6 +15,7 @@ class jeuDlc {
         $this->prix = $prix;
         $this->pegi = $pegi;
         $this->description = $description;
+        $this->idJeuParent = $idJeuParent;
     }
     
     //getter - fonctions qui retournent les valeurs de la BDD 
@@ -86,6 +87,10 @@ class jeuDlc {
    }
     public function setDescription($newDescription) {
         $this->description = $newDescription;
+		return $this;
+    }
+    public function setIdJeuParent($idJeuParent) {
+        $this->idJeuParent = $idJeuParent;
 		return $this;
     }
 }
