@@ -18,8 +18,13 @@
 				die('Erreur : '.$e->getMessage());
 			}
 			
+			//pour la table jeudlc
 			$result = $connexion->query('SELECT * FROM jeudlc WHERE nom = "'.$_POST['jeuChoisi'].'"');
 			$infosJeu = $result->fetch_array(MYSQLI_BOTH);
+			
+			//pour la table test
+			$result2 = $connexion->query('SELECT test.*, user.pseudo FROM test JOIN lien ON lien.idTest = test.id JOIN jeuDlc ON jeuDlc.id = lien.idJeuDlc JOIN `user` ON `user`.id = test.idUser WHERE jeuDlc.nom = "'.$_POST['jeuChoisi'].'"');
+			$infosTest = $result2->fetch_array(MYSQLI_ASSOC);
 		?>
 		
 	</head>
@@ -73,8 +78,6 @@
 								$rq2 = $connexion->query('SELECT dlc.nom FROM jeudlc jeu JOIN jeudlc dlc WHERE dlc.idJeuParent = jeu.id AND jeu.nom = "'.$_POST['jeuChoisi'].'"');
 								$arrDlc = $rq2->fetch_all(MYSQLI_ASSOC);
 								
-								//var_dump($arrDlc);
-								//echo $arrDlc[0]['nom'];
 								if(!empty($arrDlc[0]['nom'])){
 									echo "DLC's : ";
 									foreach($arrDlc as $dlc){
@@ -112,6 +115,45 @@
 					</aside>
 				</section>
 				<section id="test">
+					<h2>
+					<?php 
+						if(isset($_POST['jeuChoisi']) && !empty($infosTest['titre'])){
+							echo $infosTest['titre'];
+						}
+					?>
+					</h2>
+					
+					<?php 
+					if(!empty($infosTest['titre'])){
+					echo '<aside>';
+						echo '<p id="dateTest">';
+							
+								echo 'Edité le : '.$infosTest['date'];
+							
+						echo '</p>';
+						echo '<p id="auteurTest">';
+							
+								echo 'Par : '.$infosTest['pseudo'];
+							
+						echo '</p>';
+						echo '<p id="noteTest">';
+							
+								echo 'Note : '.$infosTest['note'].'/20';
+							
+						echo '</p>';
+					echo '</aside>';
+					echo '<article>';
+					
+					
+						echo $infosTest['texte'];
+					
+					
+					echo '</article>';
+					} else {
+						echo "<p>Aucun test pour ce titre n'a été rédigé pour le moment</p>";
+					}
+					
+					?>
 					
 				</section>
 			</main>
