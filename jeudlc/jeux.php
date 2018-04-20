@@ -24,7 +24,7 @@ $db = null;
 
 //var_dump ($dbrequete);
 foreach($dbrequete as $row) {
-	$jeu = new jeudlc($row->id, $row->nom, $row->editeur, $row->dev, $row->dateSortie, $row->prix, $row->pegi, $row->description);
+	$jeu = new jeudlc($row->id, $row->nom, $row->editeur, $row->dev, $row->dateSortie, $row->prix, $row->pegi, $row->description, $row->idJeuParent);
 	echo $jeu->id."<br />";
 	echo $jeu->nom."<br />";
 	echo $jeu->editeur."<br />";
@@ -33,6 +33,7 @@ foreach($dbrequete as $row) {
 	echo $jeu->prix." euros<br />";
 	echo $jeu->pegi."<br />";
 	echo $jeu->description."<br />";
+	echo $jeu->idJeuParent."<br />";
 	echo "<hr /><br />";
 }
 
@@ -55,6 +56,7 @@ $jeu->setPrix(35)
 	echo $jeu->prix." euros<br />";
 	echo $jeu->pegi."<br />";
 	echo $jeu->description."<br />";
+	echo $jeu->idJeuParent."<br />";
 	echo "<hr /><br />";
 ?>
     
