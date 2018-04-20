@@ -32,31 +32,24 @@ class jeuDlc {
 	public function getID() {
         return $this->id;
     }
-
     public function getNom() {
         return $this->nom;
     }
-
     public function getEditeur() {
         return $this->editeur;
     }
-
     public function getDev() {
         return $this->dev;
     }
-
     public function getDateSortie() {
         return $this->dateSortie;
     }
-
     public function getPrix() {
         return $this->prix;
     }
-
     public function getPegi() {
         return $this->pegi;
     }
-
     public function getDescription() {
         return $this->description;
     }
@@ -66,32 +59,34 @@ class jeuDlc {
 	public function __set($nom, $valeur){
 		echo "Impossible d'enregirter l'attribut ".$nom."<br />";
 	}
+	
     public function setNom($newNom) {
-        return $this->nom = $newNom;
+        $this->nom = $newNom;
+		return $this;
     }
-
     public function setEditeur($newEditeur) {
-        return $this->editeur = $newEditeur;
-    }
-
+        $this->editeur = $newEditeur;
+ 		return $this;
+   }
     public function setDev($newDev) {
-        return $this->dev = $newDev;
-    }
-
+        $this->dev = $newDev;
+ 		return $this;
+   }
     public function setDateSortie($newDateSortie) {
-        return $this->dateSortie = $newDateSortie;
+        $this->dateSortie = $newDateSortie;
+		return $this;
     }
-
     public function setPrix($newPrix) {
-        return $this->prix = $newPrix;
+        $this->prix = $newPrix;
+		return $this;
     }
-
     public function setPegi($newPegi) {
-        return $this->pegi = $newPegi;
-    }
-
+        $this->pegi = $newPegi;
+ 		return $this;
+   }
     public function setDescription($newDescription) {
-        return $this->description = $newDescription;
+        $this->description = $newDescription;
+		return $this;
     }
 }
 ?>
