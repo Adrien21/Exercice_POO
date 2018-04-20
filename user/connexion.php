@@ -25,18 +25,8 @@
 			}
 			
 			// Vérification de l'existence du pseudo
-			if ($ar_identification_P[0] == $pseudo) {
-				$compteur++;
-			}
-
-			// Si aucun pseudo n'est identique (compteur = 0), arrêt
-			if ($compteur == 0) {
-				echo "<span class='error'>Erreur : ce pseudo n'existe pas, veuillez recommencer la saisie ou vous inscrire</span><br/>";
-				echo "<br/><a href='connexion.html'> << retour à la page de connexion </a>";
-				echo "<br/><a href='inscription.html'> << aller à la page d'inscription </a>";
-				exit;
-			} else {
-				// Sinon, récupération du mot de passe
+			if (array_key_exists('0', $ar_identification_P)) {
+				// Récupération du mot de passe si la clé [0] existe
 				$identification_MDP = $db->query("SELECT mdp FROM user WHERE pseudo='" .$pseudo ."'");
 				$ar_identification_MDP = [];
 				foreach ($identification_MDP as $recherche) {
@@ -50,6 +40,11 @@
 					echo "Mot de passe invalide";
 					echo "<br/><a href='connexion.html'> << retour à la page de connexion </a>";
 				}
+			} else {
+				echo "<span class='error'>Erreur : ce pseudo n'existe pas, veuillez recommencer la saisie ou vous inscrire</span><br/>";
+				echo "<br/><a href='connexion.html'> << retour à la page de connexion </a>";
+				echo "<br/><a href='inscription.html'> << aller à la page d'inscription </a>";
+				exit;
 			}
 		?>
 	</body>
