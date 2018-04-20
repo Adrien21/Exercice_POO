@@ -61,7 +61,7 @@ class bddConnect{
 			$req = $this->getPDO()->query($select);
 			$data = $req->fetchAll(PDO::FETCH_OBJ);
 		//execute les INSERT
-		elseif(strpos($requete, "INSERT") === 0):
+		elseif(stripos($requete, "INSERT") === 0):
 			$req = $this->getPDO()->query($requete);
 			$data = '';
 		else:
