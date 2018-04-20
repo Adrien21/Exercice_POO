@@ -43,11 +43,7 @@ foreach($dbrequete as $row) {
 echo "--- modification du prix du jeu ---<br /><br />";
 $jeu->setPrix(35)
 	->setPegi(10);
-// echo $ps1->id."<br />";
-// echo $ps1->nom."<br />";
-// echo $ps1->getConstructeur()."<br />";
-// echo $ps1->getPrix()." euros<br />";
-// echo $ps1->getDatesortie()."<br />";
+
 	echo $jeu->id."<br />";
 	echo $jeu->nom."<br />";
 	echo $jeu->editeur."<br />";
