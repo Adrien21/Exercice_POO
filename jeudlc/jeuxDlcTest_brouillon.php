@@ -6,6 +6,7 @@
 		
 		
 		<?php
+			// connexion ...
 			$host = "127.0.0.1";
 			$bdd = "site_jv";
 			$admin = "root";
@@ -17,16 +18,45 @@
 			catch (Exception $e){
 				die('Erreur : '.$e->getMessage());
 			}
+			////
 			
-			//pour la table jeudlc
-			$result = $connexion->query('SELECT * FROM jeudlc WHERE nom = "'.$_POST['jeuChoisi'].'"');
-			$infosJeu = $result->fetch_array(MYSQLI_BOTH);
+			// pour navigation interne à la page 
 			
-			//pour la table test
-			$result2 = $connexion->query('SELECT test.*, user.pseudo FROM test JOIN lien ON lien.idTest = test.id JOIN jeuDlc ON jeuDlc.id = lien.idJeuDlc JOIN `user` ON `user`.id = test.idUser WHERE jeuDlc.nom = "'.$_POST['jeuChoisi'].'"');
-			$infosTest = $result2->fetch_array(MYSQLI_ASSOC);
+			if(isset($_POST['jeuChoisi'])){
+				$jeuChoisi = $_POST['jeuChoisi'];
+			} else if(isset($_GET['jeuChoisi'])){
+				$jeuChoisi = $_GET['jeuChoisi'];
+			}
+			//echo $_GET['jeuChoisi'];
+			
+			
+			//REQUETES BDD
+			
+			//obtenir la liste du nom des jeux pour le select
+			$listeJeux = $connexion->query('SELECT * FROM jeudlc ORDER BY nom ASC');
+						
+			if(isset($jeuChoisi)){
+								
+				//pour la table jeudlc
+				$result = $connexion->query('SELECT * FROM jeudlc WHERE nom = "'.$jeuChoisi.'"');
+				$infosJeu = $result->fetch_array(MYSQLI_BOTH);
+				
+				//pour la table test
+				$result2 = $connexion->query('SELECT test.*, user.pseudo FROM test JOIN lien ON lien.idTest = test.id JOIN jeuDlc ON jeuDlc.id = lien.idJeuDlc JOIN `user` ON `user`.id = test.idUser WHERE jeuDlc.nom = "'.$jeuChoisi.'"');
+				$infosTest = $result2->fetch_array(MYSQLI_ASSOC);
+				
+				//affichage du jeu parent pour les dlc ...
+				$rq = $connexion->query('SELECT nom FROM jeudlc WHERE id = "'.$infosJeu['idJeuParent'].'"');
+				$arrJeuParent = $rq->fetch_array(MYSQLI_BOTH);
+				//et de la liste des dlc pour un jeu
+				$rq2 = $connexion->query('SELECT dlc.nom FROM jeudlc jeu JOIN jeudlc dlc WHERE dlc.idJeuParent = jeu.id AND jeu.nom = "'.$jeuChoisi.'"');
+				$arrDlc = $rq2->fetch_all(MYSQLI_ASSOC);
+							
+				//pour afficher console en fonction du jeu choisi
+				$result3 = $connexion->query('SELECT console.nom FROM jeuDlc JOIN lien ON lien.idJeuDlc = jeudlc.id JOIN console ON console.id = lien.idConsole WHERE jeuDlc.nom = "'.$jeuChoisi.'"');
+				$arrPlatform = $result3->fetch_all(MYSQLI_ASSOC);
+			}
 		?>
-		
 	</head>
 	<body>
 			<header>
@@ -37,7 +67,7 @@
 							<option selected>séléctionner jeu</option>
 							
 							<?php
-								$listeJeux = $connexion->query('SELECT nom FROM jeudlc');
+								
 								foreach($listeJeux as $nomJeu){
 									echo '<option name="'.$nomJeu['nom'].'" value="'.$nomJeu['nom'].'" >'.$nomJeu['nom'].'</option>';
 								}
@@ -56,35 +86,35 @@
 						<hr/>
 							<h2>
 							<?php 
-								if(isset($_POST['jeuChoisi'])){
-									echo $_POST['jeuChoisi'];
+								if(isset($jeuChoisi)){
+									echo $jeuChoisi;
+								} else {
+									echo 'Aucun jeu séléctionné';
 								}
 							?>
 							</h2>
 						<hr/>
-						<fieldset>
-							<article>
+						
+						<?php
+						if(isset($jeuChoisi)){
+						
+						echo '<fieldset>';
+							echo '<article>';
 							
-							<?php
+							
 								echo $infosJeu['description'];
-							?>
 							
-							</article>
-						</fieldset>
-						<fieldset>
-							<aside>
-								<p id="dlcFrom">
-									<?php
-										$rq = $connexion->query('SELECT nom FROM jeudlc WHERE id = "'.$infosJeu['idJeuParent'].'"');
-										$arrJeuParent = $rq->fetch_array(MYSQLI_BOTH);
-										
+							
+							echo '</article>';
+						echo '</fieldset>';
+						echo '<fieldset>';
+							echo '<aside>';
+								echo '<p id="dlcFrom">';
+									
 										if($infosJeu['idJeuParent'] != null){
 											
 											echo 'DLC de : <a href="#">'.$arrJeuParent[0].'</a>';
 										}
-										
-										$rq2 = $connexion->query('SELECT dlc.nom FROM jeudlc jeu JOIN jeudlc dlc WHERE dlc.idJeuParent = jeu.id AND jeu.nom = "'.$_POST['jeuChoisi'].'"');
-										$arrDlc = $rq2->fetch_all(MYSQLI_ASSOC);
 										
 										if(!empty($arrDlc[0]['nom'])){
 											echo "DLC's : ";
@@ -93,40 +123,69 @@
 												//echo strlen($dlc['nom']);
 												
 												$strDlc = $strDlc.'<a href="#">'.$dlc['nom'].'</a>, ';
-												
-												
+													
 											}
 											echo substr($strDlc, 0, -2);
 										}
-									?>
-								</p>
-								<p id="dateSortie">
-									<?php
+									
+									
+								echo '</p>';
+								echo '<p id="dateSortie">';
+									
 										echo 'Date de sortie : '.$infosJeu['dateSortie'];
-									?>
-								</p>
-								<p id="pegi">
-									<?php
+									
+								echo '</p>';
+								echo '<p id="plateforme">';
+									
+										if(!empty($arrPlatform[0]['nom'])){
+											echo "Plateformes : ";
+											$strPtf="";
+											foreach($arrPlatform as $ptf){
+												
+												$strPtf = $strPtf.'<a href="#">'.$ptf['nom'].'</a>, ';
+											
+											}
+											echo substr($strPtf, 0, -2);
+										}
+									
+								echo '</p>';
+								echo '<p id="pegi">';
+									
 										echo 'PEGI : '.$infosJeu['pegi'];
-									?>
-								</p>
-								<p id="studio">
-									<?php
+									
+								echo '</p>';
+								echo '<p id="studio">';
+									
 										echo 'Développé par : '.$infosJeu['dev'];
-									?>
-								</p>
-								<p id="editeur">
-									<?php
+									
+								echo '</p>';
+								echo '<p id="editeur">';
+									
 										echo 'Edité par : '.$infosJeu['editeur'];
-									?>
-								</p>
-								<p id="prix">
-									<?php
+									
+								echo '</p>';
+								echo '<p id="prix">';
+									
 										echo 'Prix : '.$infosJeu['prix'].' $';
-									?>
-								</p>
-							</aside>
-						</fieldset>
+									
+								echo '</p>';
+							echo '</aside>';
+						echo '</fieldset>';
+						
+						} else {
+							
+							
+							echo '<ul>';
+							foreach($listeJeux as $nomJeu){
+								echo '<li><a class="lienJeuChoisi" href="?jeuChoisi='.$nomJeu['nom'].'">'.$nomJeu['nom'].'</a></li>';
+								echo '<p>'.$nomJeu['description'].'</p>';
+							}
+							echo '</ul>';
+							
+						}
+						
+						?>
+						
 					</section>
 				</fieldset>
 				<hr/>
@@ -135,7 +194,7 @@
 					
 						<h2>
 						<?php 
-							if(isset($_POST['jeuChoisi']) && !empty($infosTest['titre'])){
+							if(isset($jeuChoisi) && !empty($infosTest['titre'])){
 								echo '<hr/>';
 								echo $infosTest['titre'];
 								echo '<hr/>';
@@ -168,12 +227,11 @@
 							echo '<fieldset>';
 							echo '<article>';
 						
-						
 								echo $infosTest['texte'];
 						
-						
-						echo '</article>';
-						echo '</fieldset>';
+							echo '</article>';
+							echo '</fieldset>';
+							
 						} else {
 							echo "<p>Aucun test pour ce titre n'a été rédigé pour le moment.</p>";
 						}
@@ -196,6 +254,7 @@
 			selectJeu.submit();
 			
 		}
+		
 	</script>
 	
 </html>
