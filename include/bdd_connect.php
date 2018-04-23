@@ -37,7 +37,7 @@ class bddConnect{
 		if($this->pdo === null){
 			try{
 				$dbconnect = new PDO($this->sql_type.':host='.$this->sql_server.';dbname='.$this->sql_db, $this->sql_user, $this->sql_pass);
-				//$dbconnect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+				$dbconnect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 				$this->pdo = $dbconnect;
 			}
 				catch (PDOException $e) {
