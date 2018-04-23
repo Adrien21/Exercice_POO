@@ -113,7 +113,7 @@
 									
 										if($infosJeu['idJeuParent'] != null){
 											
-											echo 'DLC de : <a href="#">'.$arrJeuParent[0].'</a>';
+											echo 'DLC de : <a href="?jeuChoisi='.$arrJeuParent[0].'">'.$arrJeuParent[0].'</a>';
 										}
 										
 										if(!empty($arrDlc[0]['nom'])){
@@ -122,7 +122,7 @@
 											foreach($arrDlc as $dlc){
 												//echo strlen($dlc['nom']);
 												
-												$strDlc = $strDlc.'<a href="#">'.$dlc['nom'].'</a>, ';
+												$strDlc = $strDlc.'<a href="?jeuChoisi='.$dlc['nom'].'">'.$dlc['nom'].'</a>, ';
 													
 											}
 											echo substr($strDlc, 0, -2);
@@ -177,7 +177,7 @@
 							
 							echo '<ul>';
 							foreach($listeJeux as $nomJeu){
-								echo '<li><a class="lienJeuChoisi" href="?jeuChoisi='.$nomJeu['nom'].'">'.$nomJeu['nom'].'</a></li>';
+								echo '<li><a href="?jeuChoisi='.$nomJeu['nom'].'">'.$nomJeu['nom'].'</a></li>';
 								echo '<p>'.$nomJeu['description'].'</p>';
 							}
 							echo '</ul>';
