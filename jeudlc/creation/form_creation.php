@@ -11,7 +11,7 @@
 			<label for="crea_editeur">Editeur : </label><input type="text" name="crea_editeur" required></br></br>
 			<label for="crea_dev">Développeur : </label><input type="text" name="crea_dev" required></br></br>
 			<label for="crea_date">Date de sortie: </label><input type="date" name="crea_date" required></br></br>
-			<label for="crea_prix">Prix : </label><input type="number" name="crea_prix" required></br></br>
+			<label for="crea_prix">Prix : </label><input type="number" name="crea_prix" min="0" step="any" required></br></br>
 			<label for="crea_pegi">PEGI : </label><select name="crea_pegi">
 				<option value="3">3</option>
 				<option value="7">7</option>
