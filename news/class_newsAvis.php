@@ -2,23 +2,24 @@
 	
 	class newsAvis // objet commun, tous les champs sont identiques à l'exception de note et titre
 	{
-		protected $_id;
 		protected $_date;
-		protected $_idUser;
+		protected $_pseudo;
 		protected $_texte;
-		protected $_idLien;
+		protected $_jeuDlc;
+
 		
-		protected function __construct($id, $date, $texte, $user, $lien)
+		protected function __construct($date, $texte, $user, $jeu)
 		{
-			$this->_id = $id;
+
 			$this->_date = $date;
 			$this->_texte = $texte;
-			$this->_idUser = $user;
-			$this->_idLien = $lien;
+			$this->_pseudo = $user;
+			$this->_jeuDlc = $jeu;
+
 		}
 		
 		//fonctions get
-		protected function __get($variable){
+		public function __get($variable){
 			//if(isset($this->$variable) && $variable != "id"): 
 			if(isset($this->$variable)): 
 				//on donne acces auw attributs qui existent
@@ -28,28 +29,22 @@
 			endif;
 		}
 		
-		protected function getId(){
-			$this->_id;
-			return $this;
-		}
 		
 		
 		protected function getDate(){
-			$this->_date;
-			return $this;
+			return $this->_date;
 		}
-		protected function getIdUser(){
-			$this->_idUser;
-			return $this;
+		protected function getPseudo(){
+			return $this->_pseudo;
 		}
-		protected function getIdLien(){
-			$this->_idLien;
-			return $this;
-		}
+
 		protected function getTexte(){
-			$this->_texte;
-			return $this;
+			return $this->_texte;
 		}
+		
+		 protected function getJeuDlc(){
+			 return $this->_jeuDlc;
+		 }
 		
 		
 		
@@ -59,8 +54,8 @@
 			return $this;
 		}
 		
-		protected function setIdUser($newIdUser){
-			$this->_idUser = $newIdUser;
+		protected function setPseudo($newPseudo){
+			$this->_pseudo = $newPseudo;
 			return $this;
 		}
 		
@@ -69,10 +64,11 @@
 			return $this;
 		}
 		
-		protected function setIdLien($newIdLien){
-			$this->_idLien = $newIdLien;
+		protected function setJeuDlc($newJeuDlc){
+			$this->_jeuDlc = $newJeuDlc;
 			return $this;
 		}
+		
 		
 	}
 	
@@ -80,19 +76,26 @@
 	{
 		private $_note;
 		
-		public function __construct($id, $date, $texte, $user, $lien, $note){
+		public function __construct($date, $texte, $user, $note, $jeu){
 			$this->_note = $note;
-			parent::__construct($id, $date, $texte, $user, $lien);
+			parent::__construct($date, $texte, $user, $jeu);
 		}
 		
 		public function getNote(){
-			$this->_note;
-			return $this;
+			return $this->_note;
 		}
 		
 		public function setNote($newNote){
 			$this->_note = $newNote;
 			return $this;
+		}
+		
+		public function display(){
+			echo '<article class="news">
+				 <h1>Note pour '.$this->_jeuDlc.' : '.$this->_note.'/20</h1>
+				 <p>'.$this->_texte.'</p>
+				 <p>Ecrit le : '.$this->_date.' par '.$this->_pseudo.'</p>
+				 </article>';
 		}
 	}
 	
@@ -100,19 +103,26 @@
 	{
 		private $_titre;
 		
-		public function __construct($id, $date, $texte, $user, $lien, $titre){
+		public function __construct($date, $texte, $user, $titre, $jeu){
 			$this->_titre = $titre;
-			parent::__construct($id, $date, $texte, $user, $lien);
+			parent::__construct($date, $texte, $user, $jeu);
 		}
 		
 		public function getTitre(){
-			$this->_titre;
-			return $this;
+			return $this->_titre;
 		}
 		
 		public function setTitre($newTitre){
 			$this->_titre = $newTitre;
 			return $this;
+		}
+		
+		public function display(){
+			echo '<article class="news">
+				 <h1>'.$this->_titre.'</h1>
+				 <p>'.$this->_texte.'</p>
+				 <p>Ecrit le : '.$this->_date.' par '.$this->_pseudo.'<br/>Pour le jeu '.$this->_jeuDlc.'</p>
+				 </article>';
 		}
 	}
 	

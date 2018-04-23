@@ -9,6 +9,8 @@ function var_dump_pre($mixed = null) {
   return null;
 }
 
+include "class_newsavis.php";
+include "../include/bdd_connect.php";
 ?>
 
 <html>
@@ -18,69 +20,30 @@ function var_dump_pre($mixed = null) {
 		
 		
 		<?php
-			$host = "127.0.0.1";
-			$bdd = "site_jv";
-			$admin = "root";
-			$pw = "";
 			
-			try {
-				$connexion = mysqli_connect($host, $admin, $pw, $bdd);
-			}
-			catch (Exception $e){
-				die('Erreur : '.$e->getMessage());
-			}
-			
-			$news = $connexion->query('SELECT * FROM news JOIN user WHERE idUser = user.id');
-			$listeNews = $news->fetch_all(MYSQLI_ASSOC);
+			$maCo = new bddConnect();
+			$listeNews = $maCo->query("SELECT news.date, news.texte, news.titre, user.pseudo, jeuDlc.nom FROM news JOIN user ON idUser = user.id JOIN lien ON lien.id = news.idLien JOIN jeuDlc ON jeuDlc.id=lien.idJeuDlc ORDER BY news.date DESC");
 			//var_dump_pre($listeNews);
+			// Sélectionne TOUTES les news. Pour ne sélectionner que celles d'un jeu en particulier, la requête devient 'SELECT news.* FROM news JOIN user ON news.idUser=user.id JOIN lien ON lien.id=news.idLien JOIN jeuDlc ON lien.idJeuDlc = jeuDlc.id WHERE jeuDlc.nom = "nom du jeu" ORDER BY news.date DESC'
+			
 			foreach($listeNews as $new)
-				print_r($new["titre"]."<br/>Posté le: ".$new["date"]."<br/>".$new["texte"]."<br/>Auteur: ".$new["pseudo"]."<br/><br/>");
+			{
+				$allNews[]=new news($new->date, $new->texte, $new->pseudo, $new->titre, $new->nom);
+			}
+			//var_dump_pre($allNews);
 			
 		?>
 		
 	</head>
 	<body>
-			<!--<header>
-				
-				<nav>
-					
-				</nav>
-				
-			</header>
-			<main>
-				<section id="ficheJeu">
-					<h2>Toutes les news</h2>
-					<!--_________________________________________________________________- ->
-					
-					<article class="news">
-						<p class="titre">
-							<?php
-								//echo $listeNews["titre"];
-							?>
-						</p>
-						
-						<p class="date">
-							<?php
-								//echo $listeNews["date"];
-							?>
-						</p>
-						
-						<p class="texte">
-							<?php
-								//echo $listeNews["texte"];
-							?>
-						</p>
-					</article>
-					
-					
-					<!--_________________________________________________________________- ->
-					
-					
-				</section>
-			</main>
-			<footer>
-				
-			</footer>-->
+			<?php
+				foreach($allNews as $new)
+				{
+					$new->display();
+				}
+			
+			?>
+			
 	</body>
 	
 	<script>
