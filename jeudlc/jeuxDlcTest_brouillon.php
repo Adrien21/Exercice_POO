@@ -21,6 +21,7 @@
 			}
 			
 			$connexion->set_charset('utf8');
+			
 			//// fin connexion
 			
 			
@@ -186,7 +187,7 @@
 				<hr/>
 				<fieldset>
 					<section id="test">
-					
+						<h2>Test du jeu</h2>
 						<h2>
 						<?php 
 							if(isset($jeuChoisi) && !empty($infosTest['titre'])){
