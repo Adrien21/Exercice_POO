@@ -136,9 +136,10 @@
 									
 								echo '</p>';
 								echo '<p id="plateforme">';
-									
+								
+								echo "Plateformes : ";
+											
 										if(!empty($arrPlatform[0]['nom'])){
-											echo "Plateformes : ";
 											$strPtf="";
 											foreach($arrPlatform as $ptf){
 												
@@ -175,12 +176,14 @@
 						} else {
 							
 							
-							echo '<ul>';
+							//echo '<ul>';
 							foreach($listeJeux as $nomJeu){
-								echo '<li><a href="?jeuChoisi='.$nomJeu['nom'].'">'.$nomJeu['nom'].'</a></li>';
-								echo '<p>'.$nomJeu['description'].'</p>';
+								echo '<fieldset>';
+								echo '<a href="?jeuChoisi='.$nomJeu['nom'].'">'.$nomJeu['nom'].'</a>';
+								echo '<p>'.substr($nomJeu['description'], 0, 120).' ... </p><br/>';
+								echo '</fieldset>';
 							}
-							echo '</ul>';
+							//echo '</ul>';
 							
 						}
 						
@@ -232,7 +235,7 @@
 							echo '</article>';
 							echo '</fieldset>';
 							
-						} else {
+						} else if(isset($jeuChoisi)) {
 							echo "<p>Aucun test pour ce titre n'a été rédigé pour le moment.</p>";
 						}
 						
