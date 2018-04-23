@@ -18,16 +18,15 @@
 			catch (Exception $e){
 				die('Erreur : '.$e->getMessage());
 			}
-			////
+			//// fin connexion
 			
-			// pour navigation interne à la page 
 			
+			// pour navigation interne à la page (liens internes entre les jeux)
 			if(isset($_POST['jeuChoisi'])){
 				$jeuChoisi = $_POST['jeuChoisi'];
 			} else if(isset($_GET['jeuChoisi'])){
 				$jeuChoisi = $_GET['jeuChoisi'];
 			}
-			//echo $_GET['jeuChoisi'];
 			
 			
 			//REQUETES BDD
@@ -67,10 +66,9 @@
 							<option selected>séléctionner jeu</option>
 							
 							<?php
-								
-								foreach($listeJeux as $nomJeu){
-									echo '<option name="'.$nomJeu['nom'].'" value="'.$nomJeu['nom'].'" >'.$nomJeu['nom'].'</option>';
-								}
+							foreach($listeJeux as $nomJeu){
+								echo '<option name="'.$nomJeu['nom'].'" value="'.$nomJeu['nom'].'" >'.$nomJeu['nom'].'</option>';
+							}
 							?>
 							
 						</select>
@@ -80,17 +78,21 @@
 				<hr/>
 				
 			</header>
+			
 			<main>
+			<!-- ici finit le header -->
+			
+			<!-- ici commence l'affichage de la fiche du jeu -->
 				<fieldset>
 					<section id="ficheJeu">
 						<hr/>
 							<h2>
 							<?php 
-								if(isset($jeuChoisi)){
-									echo $jeuChoisi;
-								} else {
-									echo 'Aucun jeu séléctionné';
-								}
+							if(isset($jeuChoisi)){
+								echo $jeuChoisi;
+							} else {
+								echo 'Aucun jeu séléctionné';
+							}
 							?>
 							</h2>
 						<hr/>
@@ -99,98 +101,85 @@
 						if(isset($jeuChoisi)){
 						
 						echo '<fieldset>';
-							echo '<article>';
+						echo '<article>';
 							
+							echo $infosJeu['description'];
 							
-								echo $infosJeu['description'];
-							
-							
-							echo '</article>';
+						echo '</article>';
 						echo '</fieldset>';
 						echo '<fieldset>';
-							echo '<aside>';
-								echo '<p id="dlcFrom">';
+						echo '<aside>';
+						echo '<p id="dlcFrom">';
+						
+						if($infosJeu['idJeuParent'] != null){
+							echo 'DLC de : <a href="?jeuChoisi='.$arrJeuParent[0].'">'.$arrJeuParent[0].'</a>';
+						}
+						if(!empty($arrDlc[0]['nom'])){
+							echo "DLC's : ";
+							$strDlc="";
+							foreach($arrDlc as $dlc){
+								$strDlc = $strDlc.'<a href="?jeuChoisi='.$dlc['nom'].'">'.$dlc['nom'].'</a>, ';
+							}
+							echo substr($strDlc, 0, -2);
+						}
+						
+						echo '</p>';
+						echo '<p id="dateSortie">';
+							
+							echo 'Date de sortie : '.$infosJeu['dateSortie'];
 									
-										if($infosJeu['idJeuParent'] != null){
-											
-											echo 'DLC de : <a href="?jeuChoisi='.$arrJeuParent[0].'">'.$arrJeuParent[0].'</a>';
-										}
-										
-										if(!empty($arrDlc[0]['nom'])){
-											echo "DLC's : ";
-											$strDlc="";
-											foreach($arrDlc as $dlc){
-												//echo strlen($dlc['nom']);
-												
-												$strDlc = $strDlc.'<a href="?jeuChoisi='.$dlc['nom'].'">'.$dlc['nom'].'</a>, ';
-													
-											}
-											echo substr($strDlc, 0, -2);
-										}
-									
-									
-								echo '</p>';
-								echo '<p id="dateSortie">';
-									
-										echo 'Date de sortie : '.$infosJeu['dateSortie'];
-									
-								echo '</p>';
-								echo '<p id="plateforme">';
+						echo '</p>';
+						echo '<p id="plateforme">';
 								
-								echo "Plateformes : ";
+						echo "Plateformes : ";
 											
-										if(!empty($arrPlatform[0]['nom'])){
-											$strPtf="";
-											foreach($arrPlatform as $ptf){
-												
-												$strPtf = $strPtf.'<a href="#">'.$ptf['nom'].'</a>, ';
-											
-											}
-											echo substr($strPtf, 0, -2);
-										}
-									
-								echo '</p>';
-								echo '<p id="pegi">';
-									
-										echo 'PEGI : '.$infosJeu['pegi'];
-									
-								echo '</p>';
-								echo '<p id="studio">';
-									
-										echo 'Développé par : '.$infosJeu['dev'];
-									
-								echo '</p>';
-								echo '<p id="editeur">';
-									
-										echo 'Edité par : '.$infosJeu['editeur'];
-									
-								echo '</p>';
-								echo '<p id="prix">';
-									
-										echo 'Prix : '.$infosJeu['prix'].' $';
-									
-								echo '</p>';
-							echo '</aside>';
+						if(!empty($arrPlatform[0]['nom'])){
+							$strPtf="";
+							foreach($arrPlatform as $ptf){
+								$strPtf = $strPtf.'<a href="#">'.$ptf['nom'].'</a>, ';
+							}
+							echo substr($strPtf, 0, -2);
+						}
+						
+						echo '</p>';
+						echo '<p id="pegi">';
+							
+							echo 'PEGI : '.$infosJeu['pegi'];
+							
+						echo '</p>';
+						echo '<p id="studio">';
+							
+							echo 'Développé par : '.$infosJeu['dev'];
+							
+						echo '</p>';
+						echo '<p id="editeur">';
+						
+							echo 'Edité par : '.$infosJeu['editeur'];
+							
+						echo '</p>';
+						echo '<p id="prix">';
+						
+							echo 'Prix : '.$infosJeu['prix'].' $';
+						
+						echo '</p>';
+						echo '</aside>';
 						echo '</fieldset>';
 						
 						} else {
-							
-							
-							//echo '<ul>';
 							foreach($listeJeux as $nomJeu){
 								echo '<fieldset>';
 								echo '<a href="?jeuChoisi='.$nomJeu['nom'].'">'.$nomJeu['nom'].'</a>';
 								echo '<p>'.substr($nomJeu['description'], 0, 120).' ... </p><br/>';
 								echo '</fieldset>';
 							}
-							//echo '</ul>';
-							
 						}
-						
 						?>
 						
 					</section>
 				</fieldset>
+				<!-- ici finit l'affichage de la fiche du jeu -->
+				
+				<!-- ici commence l'affichage du test du jeu -->
 				<hr/>
 				<fieldset>
 					<section id="test">
@@ -243,6 +232,9 @@
 					
 					</section>
 				</fieldset>
+			<!-- ici finit l'affichage du test du jeu -->
+			
+			<!-- ici commence le footer -->
 			</main>
 			<footer>
 				

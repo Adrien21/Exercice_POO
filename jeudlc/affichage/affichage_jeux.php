@@ -11,7 +11,7 @@
 			require_once("../../include/bdd_id.php");
 			require_once("../../include/bdd_connect.php");
 			$db = new bddConnect($mysql_db, $mysql_user, $mysql_pass, $mysql_server);
-			$requete = 'SELECT * FROM jeudlc WHERE id=1'; // "id=" <-- A modifier pour afficher dynamiquement
+			$requete = 'SELECT * FROM jeudlc WHERE id=4'; // "id=" <-- A modifier pour afficher dynamiquement
 			$dbrequete = $db->query($requete);
 
 			//  Affichage objet
@@ -26,12 +26,23 @@
 				echo "<p>Description : " .$jeu->description."</p><br/>";
 
 				if(!is_null($jeu->idJeuParent)) {
-					$requete2 = $db->query("SELECT nom FROM jeudlc WHERE id=" .$jeu->idJeuParent);
+					$requete_parent = $db->query("SELECT nom FROM jeudlc WHERE id=" .$jeu->idJeuParent);
 					$nom_jeu_parent = "";
-					foreach($requete2 as $parent){
+					foreach($requete_parent as $parent){
 						$nom_jeu_parent .= $parent->nom;
 						echo "<p>DLC de : " .$nom_jeu_parent ."</p><br/>";
 					}
+				} else {
+					$requete_dlc = $db->query("SELECT nom FROM jeudlc WHERE idJeuParent=" .$jeu->id);
+					$dlc = [];
+					$index = 0;
+					echo "DLC de ce jeu :<ul>";
+					foreach ($requete_dlc as $jeu_enfant) {
+						array_push($dlc, ($jeu_enfant->nom));
+						echo "<li>" .$dlc[$index] ."</li>";
+						$index++;
+					}
+					echo "</ul>";
 				}
 			}
 		?>
