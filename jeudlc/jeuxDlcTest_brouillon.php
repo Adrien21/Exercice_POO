@@ -6,6 +6,7 @@
 		
 		
 		<?php
+		
 			// connexion ...
 			$host = "127.0.0.1";
 			$bdd = "site_jv";
@@ -18,6 +19,8 @@
 			catch (Exception $e){
 				die('Erreur : '.$e->getMessage());
 			}
+			
+			$connexion->set_charset('utf8');
 			//// fin connexion
 			
 			
