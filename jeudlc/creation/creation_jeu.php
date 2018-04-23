@@ -9,10 +9,8 @@
 		require_once("../class_jeux.php");
 
 		//connexion a la bdd
-		require_once("../../include/bdd_id.php");
 		require_once("../../include/bdd_connect.php");
-		$db = new bddConnect($mysql_db, $mysql_user, $mysql_pass, $mysql_server);
-
+		$db = new bddConnect($sql_db, $sql_user, $sql_pass, $sql_server, $sql_type);
 		// Déclaration des variables
 		$nom = $_POST['crea_nom'];
 		$editeur = $_POST['crea_editeur'];
@@ -25,7 +23,7 @@
 
 		$nouvjeu = new jeuDlc(NULL, $nom, $editeur, $dev, $date, $prix, $pegi, $description, $jeuparent);
 		var_dump("<pre>", $nouvjeu, "</pre>");
-		$requete = "INSERT INTO `jeudlc` (`nom`, `editeur`, `dev`, `dateSortie`, `prix`, `pegi`, `description`, `idJeuParent`) VALUES ('".$nouvjeu->nom."', '".$nouvjeu->editeur."', '".$nouvjeu->dev."', '".$nouvjeu->dateSortie."', '".$nouvjeu->prix."', '".$nouvjeu->pegi."', '".$nouvjeu->description."', ".$nouvjeu->idJeuParent.")";
+		$requete = "INSERT INTO `jeudlc` (`nom`, `editeur`, `dev`, `dateSortie`, `prix`, `pegi`, `description`, `idJeuParent`) VALUES ('".addslashes($nouvjeu->nom)."', '".$nouvjeu->editeur."', '".$nouvjeu->dev."', '".$nouvjeu->dateSortie."', '".$nouvjeu->prix."', '".$nouvjeu->pegi."', '".addslashes($nouvjeu->description)."', ".$nouvjeu->idJeuParent.")";
 		$db->query($requete);
 		var_dump("<pre>", $requete, "</pre>");
 	?>

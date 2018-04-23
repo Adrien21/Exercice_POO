@@ -8,10 +8,8 @@
 		<?php
 			require_once("../class_jeux.php");
 			//  Connexion a la BDD
-			require_once("../../include/bdd_id.php");
 			require_once("../../include/bdd_connect.php");
-			$db = new bddConnect($mysql_db, $mysql_user, $mysql_pass, $mysql_server);
-			$requete = 'SELECT * FROM jeudlc WHERE id=4'; // "id=" <-- A modifier pour afficher dynamiquement
+			$db = new bddConnect($sql_db, $sql_user, $sql_pass, $sql_server, $sql_type);			$requete = 'SELECT * FROM jeudlc WHERE id=4'; // "id=" <-- A modifier pour afficher dynamiquement
 			$dbrequete = $db->query($requete);
 
 			//  Affichage objet

@@ -1,9 +1,7 @@
 <?php
 	//connexion a la bdd
-	require_once("../../include/bdd_id.php");
 	require_once("../../include/bdd_connect.php");
-	$db = new bddConnect($mysql_db, $mysql_user, $mysql_pass, $mysql_server);
-	$requete = $db->query("SELECT nom, id FROM jeudlc WHERE idJeuParent IS NULL");
+	$db = new bddConnect($sql_db, $sql_user, $sql_pass, $sql_server, $sql_type);	$requete = $db->query("SELECT nom, id FROM jeudlc WHERE idJeuParent IS NULL");
 
 	$i = 0;
 	$nomjeux = [];
