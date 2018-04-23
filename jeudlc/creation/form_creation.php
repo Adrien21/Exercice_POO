@@ -2,7 +2,7 @@
 <html lang="fr">
 	<head>
 		<meta charset="utf-8">
-		<title>Modification BDD avec formulaire</title>
+		<title>Création BDD avec formulaire</title>
 	</head>
 	<body>
 		<form method="post" action="creation_jeu.php" enctype="multipart/form-data">
