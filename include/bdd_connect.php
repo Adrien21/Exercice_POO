@@ -1,18 +1,21 @@
 <?php
+require_once("bdd_id.php");
 //objet connexion a la bdd
 class bddConnect{
-	private $mysql_server;
-	private $mysql_user;
-	private $mysql_pass;
-	private $mysql_db;
+	private $sql_type;
+	private $sql_server;
+	private $sql_user;
+	private $sql_pass;
+	private $sql_db;
 	private $pdo;
 	
 	//constructeur de l'objet avec 4 parametres : base, utilisateur, mdp, adresse du site
-	public function __construct($mysql_db, $mysql_user, $mysql_pass, $mysql_server){
-		$this->mysql_db = $mysql_db;
-		$this->mysql_user = $mysql_user;
-		$this->mysql_pass = $mysql_pass;
-		$this->mysql_server = $mysql_server;
+	public function __construct($sql_db, $sql_user, $sql_pass, $sql_server, $sql_type){
+		$this->sql_db = $sql_db;
+		$this->sql_user = $sql_user;
+		$this->sql_pass = $sql_pass;
+		$this->sql_server = $sql_server;
+		$this->sql_type = $sql_type;
 	}
 	//destruction de l'objet
 	public function __destruct(){
@@ -33,7 +36,7 @@ class bddConnect{
 		//si la connexion n'existe pas on la tente
 		if($this->pdo === null){
 			try{
-				$dbconnect = new PDO('mysql:host='.$this->mysql_server.';dbname='.$this->mysql_db, $this->mysql_user, $this->mysql_pass);
+				$dbconnect = new PDO($this->sql_type.':host='.$this->sql_server.';dbname='.$this->sql_db, $this->sql_user, $this->sql_pass);
 				//$dbconnect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 				$this->pdo = $dbconnect;
 			}
