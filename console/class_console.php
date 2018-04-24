@@ -15,7 +15,8 @@ class console{
 			//on donne acces auw attributs qui existent
 			return $this->$variable;
 		else:
-			echo "L'attribut ".$variable." n'existe pas !<br />";
+			echo "ERREUR";
+			//echo "L'attribut ".$variable." n'existe pas !<br />";
 		endif;
 	}
 
