@@ -19,14 +19,14 @@
 		//creation
 		if($_POST['id'] == 0):
 			$Nconsole = new console(NULL, $_POST['nom'], $_POST['constructeur'], $_POST['prix'], $_POST['dateSortie']);
-			$requete = 'INSERT INTO console(nom, constructeur, prix, dateSortie) VALUES ("'.addslashes($Nconsole->nom).'","'.addslashes($Nconsole->constructeur).'",'.$Nconsole->prix.',"'.$Nconsole->dateSortie.'")';
+			$requete = 'INSERT INTO console(nom, constructeur, prix, dateSortie) VALUES ("'.addslashes(strip_tags($Nconsole->nom)).'","'.addslashes(strip_tags($Nconsole->constructeur)).'",'.$Nconsole->prix.',"'.$Nconsole->dateSortie.'")';
 			
 			$affichage = "Insertion d'une nouvelle console ".$Nconsole->nom;
 			
 		//modification
 		else:
 			$Nconsole = new console($_POST['id'], $_POST['nom'], $_POST['constructeur'], $_POST['prix'], $_POST['dateSortie']);
-			$requete = 'UPDATE console SET nom = "'.addslashes($Nconsole->nom).'", constructeur = "'.addslashes($Nconsole->constructeur).'", prix = '.$Nconsole->prix.', dateSortie = "'.$Nconsole->dateSortie.'" WHERE id ='.$Nconsole->id;
+			$requete = 'UPDATE console SET nom = "'.addslashes(strip_tags($Nconsole->nom)).'", constructeur = "'.addslashes(strip_tags($Nconsole->constructeur)).'", prix = '.$Nconsole->prix.', dateSortie = "'.$Nconsole->dateSortie.'" WHERE id ='.$Nconsole->id;
 			
 			$affichage = "Modification de la console ".$Nconsole->id." : ".$Nconsole->nom;			
 		endif;
