@@ -7,7 +7,7 @@ class console{
 		$this->nom = $nom;
 		$this->constructeur = $constructeur;
 		$this->prix = $prix;
-		$this->datesortie = $dateSortie;
+		$this->dateSortie = $dateSortie;
     }
 	//getter
 	public function __get($variable){

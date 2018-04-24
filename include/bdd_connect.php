@@ -67,6 +67,10 @@ class bddConnect{
 		elseif(stripos($requete, "INSERT") === 0):
 			$req = $this->getPDO()->query($requete);
 			$data = '';
+		//execute les DELETE
+		elseif(stripos($requete, "DELETE") === 0):
+			$req = $this->getPDO()->query($requete);
+			$data = '';
 		else:
 		echo "SQL non reconnu ou non autorisé !<br />";
 			$data = '';
