@@ -30,8 +30,6 @@
               $nomdlc .= $value->nom;  
                   
             }
-            $idDlc="";
-            $idDlc= $col->id;
             
         ?>
         
@@ -50,23 +48,11 @@
 				<option value="18">18</option>
 			</select></br></br>
 			<label for="modif_description">Description : </label>
-            <!--  <textarea name="modif_description" value=""  form="modif" required> <?php echo $jeuchoisi->description; ?> </textarea> </br></br> -->
+            <!--  <textarea name="modif_description" value=""  form="modif" required> <?php //echo $jeuchoisi->description; ?> </textarea> </br></br> -->
 
             <input type="textarea" name="modif_description" value="<?php echo $jeuchoisi->description; ?>" required></br></br>
 			<label for="jeuparent">Si c'est un DLC, préciser le jeu parent : </label><select name="jeuparent">
-				 <option selected value="<?php echo $idDlc; ?>"><?php 
-                     if ($nomdlc != NULL ) {
-                        echo $nomdlc ; 
-                     }
-                     else if ($jeuchoisi->nom == $nomdlc) {
-                        echo "Aucun";
-                     }
-                     
-                     else {
-                        echo "Aucun";
-                     } 
-                     ?>
-                </option>
+				 <option selected value=""> Aucun </option>
 				<?php
 				require_once("liste_jeux.php");
 				?>
@@ -75,5 +61,12 @@
 			<input type="submit" name="Modifier" value="Modifier">
 
 		</form>
+        <?php 
+                var_dump($jeuchoisi->nom);
+                var_dump($nomdlc);
+                
+    
+        ?>
+        
 	</body>
 </html>
