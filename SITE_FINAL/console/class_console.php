@@ -54,7 +54,7 @@ class console{
 			if(!empty($arrDisponible[0]->nom)){
 				$strDpb="";
 				foreach($arrDisponible as $dpb){
-					$strDpb = $strDpb.'<a href="../jeudlc.php?jeuChoisi='.$dpb->nom.'">'.$dpb->nom.'</a>, ';
+					$strDpb = $strDpb.'<a href="jeudlc.php?jeuChoisi='.$dpb->nom.'">'.$dpb->nom.'</a>, ';
 				}
 				echo substr($strDpb, 0, -2);
 			}
