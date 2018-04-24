@@ -34,7 +34,7 @@
 				<nav>
 					<form id="selectJeux" name="selectJeu" method="POST" action="" >
 						<select name="jeuChoisi" >
-							<option selected>séléctionner jeu</option>
+							<option selected>Navigation dans les jeux</option>
 							
 							<?php
 							foreach($listeJeux as $nomJeu){
@@ -44,7 +44,7 @@
 							
 						</select>
 					</form>
-				</nav>
+				</nav></br>
 				
 				<!-- ici commence l'affichage de la fiche du jeu -->
 				<fieldset>
@@ -145,7 +145,64 @@
 					<form method="post" action="../modification/form_modif.php" enctype="multipart/form-data">
 						<input type="hidden" name="jeuamodif" value="' .$jeu->id .'">
 			            <input type="submit" name="modifier" value="Modifier le jeu">
-			        </form>';
+			        </form>'; ?>
+			        <hr/>
+				<fieldset>
+					<section id="test">
+						<h2>Test du jeu</h2>
+						<h2>
+						<?php
+							$result2 = $db->query('SELECT test.*, user.pseudo FROM test JOIN lien ON lien.idTest = test.id JOIN jeuDlc ON jeuDlc.id = lien.idJeuDlc JOIN `user` ON `user`.id = test.idUser WHERE jeuDlc.nom = "'.$jeuChoisi.'"');
+							$donneestest = [];
+							foreach ($result2 as $infosTest) {
+								array_push($donneestest, $infosTest);
+							}
+							if(isset($jeuChoisi) && !empty($donneestest[0]->titre)){
+								echo '<hr/>';
+								echo $donneestest[0]->titre;
+								echo '<hr/>';
+							}
+						?>
+						</h2>
+						
+						<?php 
+						if(!empty($donneestest[0]->titre)){
+							echo '<fieldset>';
+							echo '<aside>';
+							
+							echo '<p id="dateTest">';
+								
+								echo 'Edité le : '.$donneestest[0]->date;
+								
+							echo '</p>';
+							echo '<p id="auteurTest">';
+								
+								echo 'Par : '.$donneestest[0]->pseudo;
+								
+							echo '</p>';
+							echo '<p id="noteTest">';
+								
+								echo 'Note : '.$donneestest[0]->note.'/20';
+								
+							echo '</p>';
+							echo '</aside>';
+							echo '</fieldset>';
+							echo '<fieldset>';
+							echo '<article>';
+						
+								echo $donneestest[0]->texte;
+						
+							echo '</article>';
+							echo '</fieldset>';
+							
+						} else if(isset($jeuChoisi)) {
+							echo "<p>Aucun test pour ce titre n'a été rédigé pour le moment.</p>";
+						}
+						
+						?>
+					
+					</section>
+				</fieldset><?php
 				} 
 				
 			} else if(!isset($jeuChoisi)) {
