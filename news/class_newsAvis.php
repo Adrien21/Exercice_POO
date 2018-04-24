@@ -91,7 +91,7 @@
 		}
 		
 		public function display(){
-			echo '<article class="news">
+			echo '<article class="avis_indiv">
 				 <h1>Note pour '.$this->_jeuDlc.' : '.$this->_note.'/20</h1>
 				 <p>'.$this->_texte.'</p>
 				 <p>Ecrit le : '.$this->_date.' par '.$this->_pseudo.'</p>
@@ -118,8 +118,8 @@
 		}
 		
 		public function display(){
-			echo '<article class="news">
-				 <h1>'.$this->_titre.'</h1>
+			echo '<article class="new_indiv">
+				 <h2>'.$this->_titre.'</h2>
 				 <p>'.$this->_texte.'</p>
 				 <p>Ecrit le : '.$this->_date.' par '.$this->_pseudo.'<br/>Pour le jeu '.$this->_jeuDlc.'</p>
 				 </article>';
