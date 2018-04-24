@@ -6,7 +6,7 @@
 	</head>
 	<body>
 		<form method="post" action="create_news.php" enctype="multipart/form-data" id="formnews">
-			<!-- Créer, modifier fiche jeux (OBJ jeux) -->
+			<!-- Créer nouvelle news -->
 			<h1>Nouvelle news</h1>
 			<label for="crea_titre">Titre : </label><input type="text" name="crea_titre" required></br></br>
 			<label for="crea_texte">Texte : </label><textarea form="formnews" name="crea_texte" required></textarea></br></br>

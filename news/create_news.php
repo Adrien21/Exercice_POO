@@ -17,7 +17,7 @@
 		
 		
 		$maCo->query("INSERT INTO `news` (`titre`, `texte`, `idUser`, `idLien`, `date`) VALUES ('".$_POST['crea_titre']."', '".$_POST['crea_texte']."', ".intval($user).", ".intval($lien).", '".date("Y-m-d H:i:s")."')");
-		
+		echo 'La news "'.$_POST['crea_titre'].'" a bien été créée.';
 	?>
 </body>
 </html>
