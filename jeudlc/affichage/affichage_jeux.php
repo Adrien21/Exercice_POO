@@ -10,7 +10,7 @@
 			//  Connexion a la BDD
 			require_once("../../include/bdd_connect.php");
 			$db = new bddConnect($sql_db, $sql_user, $sql_pass, $sql_server, $sql_type);
-			$requete = 'SELECT * FROM jeudlc WHERE id=4'; // "id=" <-- A modifier pour afficher dynamiquement
+			$requete = "SELECT * FROM jeudlc WHERE nom='God of war'"; // "nom=" <-- A modifier pour afficher dynamiquement
 			$dbrequete = $db->query($requete);
 
 			//  Affichage objet
