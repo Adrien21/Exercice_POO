@@ -19,10 +19,10 @@ session_start();
         <header>
             <nav>
                 <ul>
-                    <li><a href="../news/news.php"> Tous les Jeux</a></li>
-                    <li><a href="news.php"> Toutes les News</a></li>
+                    <li><a href="jeudlc/affichage/affichage_jeux.php"> Tous les Jeux</a></li>
+                    <li><a href="news/news.php"> Toutes les News</a></li>
                     <li><a href="test.php"> Tous les Tests</a></li>
-                    <li><a href="console.php"> Toures les consoles</a></li>
+                    <li><a href="console.php"> Toutes les consoles</a></li>
                 </ul>  
             </nav>
         </header>
