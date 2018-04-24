@@ -49,7 +49,10 @@
 				<option value="16">16</option>
 				<option value="18">18</option>
 			</select></br></br>
-			<label for="modif_description">Description : </label><input type="text" name="modif_description" value="<?php echo $jeuchoisi->description; ?>" required></br></br>
+			<label for="modif_description">Description : </label>
+            <!--  <textarea name="modif_description" value=""  form="modif" required> <?php echo $jeuchoisi->description; ?> </textarea> </br></br> -->
+
+            <input type="textarea" name="modif_description" value="<?php echo $jeuchoisi->description; ?>" required></br></br>
 			<label for="jeuparent">Si c'est un DLC, préciser le jeu parent : </label><select name="jeuparent">
 				 <option selected value="<?php echo $idDlc; ?>"><?php 
                      if ($nomdlc != NULL ) {
