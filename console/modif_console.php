@@ -6,6 +6,8 @@
 	</head>
 	<body>
 	<?php 
+	//varaible pour affichage
+	$affichage = "";
 	//appel objet jeu
 	require_once("class_console.php");
 	//connexion a la bdd
@@ -46,7 +48,7 @@
 	else: 
 		$consoleSelect = new console(0, "", "", 0, "");
 	endif;
-	
+	echo $affichage."<br>";
 	//affichage de la liste des consoles
 	include("console.php");
 	?>

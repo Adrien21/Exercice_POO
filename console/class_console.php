@@ -37,5 +37,17 @@ class console{
 		
 		return $this->datesortie = $newDatesortie;
 	}
+	
+	//autres fonctions
+	public function display(){
+	echo '<article class="console">
+		 <h1>'.$this->nom.'</h1>
+		 <p>Constructeur : '.$this->constructeur.'</p>
+		 <p>Prix : '.$this->prix.'€</p>
+		 <p>Sortie le : '.$this->dateSortie.'</p>
+		 <p><a href="modif_console.php?console='.$this->id.'">Modifier</a></p>
+		 <p><a href="#">Supprimer</a></p>
+		 </article>';
+	}
 }
 ?>
