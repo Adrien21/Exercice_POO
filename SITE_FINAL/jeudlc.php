@@ -1,7 +1,6 @@
 <?php
-include("../../template/header.php");			
+include("template/header.php");
 
-    
 			// pour navigation interne à la page (liens internes entre les jeux)
 			if(isset($_POST['jeuChoisi'])){
 				$jeuChoisi = $_POST['jeuChoisi'];
@@ -9,9 +8,9 @@ include("../../template/header.php");
 				$jeuChoisi = $_GET['jeuChoisi'];
 			}
 		
-			require_once("../class_jeux.php");
+			require_once("jeudlc/class_jeux.php");
 			//  Connexion a la BDD
-			require_once("../../include/bdd_connect.php");
+			require_once("include/bdd_connect.php");
 			$db = new bddConnect($sql_db, $sql_user, $sql_pass, $sql_server, $sql_type);
 			
 			//obtenir la liste du nom des jeux pour la liste
@@ -136,21 +135,24 @@ include("../../template/header.php");
 						
 					echo '</p>';
 					echo '</aside>';
-					echo '</fieldset>';
-					
+					echo '</fieldset>
+					<form method="post" action="jeudlc/modification/form_modif.php" enctype="multipart/form-data">
+						<input type="hidden" name="jeuamodif" value="' .$jeu->id .'">
+			            <input type="submit" name="modifier" value="Modifier le jeu">
+			        </form>';
 				} 
 				
 			} else if(!isset($jeuChoisi)) {
-				
+				echo '<a href="jeudlc/creation/form_creation.php">Ajouter un jeu</a></br></br>';
 				foreach($listeJeux as $nomJeu){
 					echo '<fieldset>';
 					echo '<a href="?jeuChoisi='.$nomJeu->nom.'">'.$nomJeu->nom.'</a>';
 					echo '<p>'.substr($nomJeu->description, 0, 120).' ... </p><br/>';
 					echo '</fieldset>';
 				}
-            }
+		  }
 
-include("../../template/footer.php");
+include("template/footer.php");
 ?>
 		
 	

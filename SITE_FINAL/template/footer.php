@@ -9,6 +9,7 @@
 		jeuChoisi.onchange = function(){
 			selectJeu.submit();
 		}
+        
 	</script>
     </body>
 </html> 

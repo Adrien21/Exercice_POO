@@ -2,9 +2,10 @@
 <html lang="fr">
 	<head>
 		<meta charset="utf-8">
-		<title>Création BDD avec formulaire</title>
+		<title>Ajouter un jeu</title>
 	</head>
 	<body>
+		<h1>Ajouter un jeu</h1>
 		<form method="post" action="creation_jeu.php" enctype="multipart/form-data">
 			<!-- Créer, modifier fiche jeux (OBJ jeux) -->
 			<label for="crea_nom">Nom : </label><input type="text" name="crea_nom" required></br></br>
