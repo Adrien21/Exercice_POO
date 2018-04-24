@@ -6,10 +6,7 @@
 	</head>
 	<body>
 		<?php
-		
-		$jeuChoisi="Assassin's Creed Origins : The Hidden Ones";
-		//addslashes($jeuChoisi);
-		
+			
 			// pour navigation interne à la page (liens internes entre les jeux)
 			if(isset($_POST['jeuChoisi'])){
 				$jeuChoisi = $_POST['jeuChoisi'];
@@ -17,35 +14,53 @@
 				$jeuChoisi = $_GET['jeuChoisi'];
 			}
 		
-		
 			require_once("../class_jeux.php");
 			//  Connexion a la BDD
 			require_once("../../include/bdd_connect.php");
 			$db = new bddConnect($sql_db, $sql_user, $sql_pass, $sql_server, $sql_type);
-			$requete = "SELECT * FROM jeudlc WHERE nom='".addslashes($jeuChoisi)."'"; // "nom=" <-- A modifier pour afficher dynamiquement
-			$dbrequete = $db->query($requete);
-
+			
+			//obtenir la liste du nom des jeux pour la liste
+			$listeJeux = $db->query('SELECT * FROM jeudlc ORDER BY nom ASC');
+						
 			//  Affichage objet
-			foreach($dbrequete as $row) {
-				$jeu = new jeudlc($row->id, $row->nom, $row->editeur, $row->dev, $row->dateSortie, $row->prix, $row->pegi, $row->description, $row->idJeuParent);
-				?>
+			if(isset($jeuChoisi)){
+				$requete = "SELECT * FROM jeudlc WHERE nom='".addslashes($jeuChoisi)."'"; // "nom=" <-- A modifier pour afficher dynamiquement
+				$dbrequete = $db->query($requete);
+				
+				foreach($dbrequete as $row) {
+					$jeu = new jeudlc($row->id, $row->nom, $row->editeur, $row->dev, $row->dateSortie, $row->prix, $row->pegi, $row->description, $row->idJeuParent);
+			?>
+				
+				<nav>
+					<form id="selectJeux" name="selectJeu" method="POST" action="" >
+						<select name="jeuChoisi" >
+							<option selected>séléctionner jeu</option>
+							
+							<?php
+							foreach($listeJeux as $nomJeu){
+								echo '<option name="'.$nomJeu->nom.'" value="'.$nomJeu->nom.'" >'.$nomJeu->nom.'</option>';
+							}
+							?>
+							
+						</select>
+					</form>
+				</nav>
+				
 				<!-- ici commence l'affichage de la fiche du jeu -->
 				<fieldset>
 					<section id="ficheJeu">
 						<hr/>
 							<h2>
-				<?= $jeu->nom; ?>
+								<?= $jeu->nom; ?>
 							</h2>
 						<hr/>
 				
 				<?php
 				$requete_dlc = $db->query("SELECT nom FROM jeudlc WHERE idJeuParent=" .$jeu->id);
-				
+					
 				//pour afficher console en fonction du jeu choisi
 				$result3 = $db->query('SELECT console.nom FROM jeuDlc JOIN lien ON lien.idJeuDlc = jeudlc.id JOIN console ON console.id = lien.idConsole WHERE jeuDlc.nom = "'.$jeuChoisi.'"');
-
 				
-				if(isset($jeuChoisi)){
 					echo '<fieldset>';
 					echo '<article>';
 					
@@ -103,15 +118,7 @@
 						$i++;
 					}
 					echo substr($strPlt, 0, -2);
-					/*
-					if(!empty($arrPlatform[0]['nom'])){
-						$strPtf="";
-						foreach($arrPlatform as $ptf){
-							$strPtf = $strPtf.'<a href="#">'.$ptf['nom'].'</a>, ';
-						}
-						echo substr($strPtf, 0, -2);
-					}
-						*/
+					
 					echo '</p>';
 					echo '<p id="pegi">';
 							
@@ -136,18 +143,26 @@
 					echo '</aside>';
 					echo '</fieldset>';
 					
-					
-					/*
-					echo "<p>Editeur : " .$jeu->editeur."</p><br/>";
-					echo "<p>Développeur : " .$jeu->dev."</p><br/>";
-					//echo "<p>Date de sortie : " .$jeu->dateSortie."</p><br/>";
-					echo "<p>Prix : " .$jeu->prix."€</p><br/>";
-					echo "<p>PEGI : " .$jeu->pegi."</p><br/>";
-					*/
-
-					
+				} 
+				
+			} else if(!isset($jeuChoisi)) {
+				
+				foreach($listeJeux as $nomJeu){
+					echo '<fieldset>';
+					echo '<a href="?jeuChoisi='.$nomJeu->nom.'">'.$nomJeu->nom.'</a>';
+					echo '<p>'.substr($nomJeu->description, 0, 120).' ... </p><br/>';
+					echo '</fieldset>';
 				}
 			}
 		?>
+		
 	</body>
+	<script>
+		let jeuChoisi = document.getElementsByName("jeuChoisi")[0];
+		let selectJeu = document.getElementsByName("selectJeu")[0];
+		
+		jeuChoisi.onchange = function(){
+			selectJeu.submit();
+		}
+	</script>
 </html>
