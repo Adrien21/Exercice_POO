@@ -2,15 +2,10 @@
 
 <?php
 
-function var_dump_pre($mixed = null) {
-  echo '<pre>';
-  var_dump($mixed);
-  echo '</pre>';
-  return null;
-}
 
-include_once "class_newsavis.php";
-include_once "bdd_connect.php";
+
+include_once "../news/class_newsavis.php";
+include_once "../include/bdd_connect.php";
 ?>
 
 <html>

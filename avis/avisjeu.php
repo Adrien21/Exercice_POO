@@ -3,8 +3,8 @@
 
 
 
-include_once "class_newsavis.php";
-include_once "bdd_connect.php";
+include_once "../news/class_newsavis.php";
+include_once "../include/bdd_connect.php";
 ?>
 
 
