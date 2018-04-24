@@ -1,11 +1,11 @@
 
 
 <?php
+include("template/header.php");
 
 
-
-include_once "class_newsavis.php";
-include_once "../include/bdd_connect.php";
+include_once "news/class_newsavis.php";
+include_once "include/bdd_connect.php";
 
 			
 			$maCo = new bddConnect($sql_db, $sql_user, $sql_pass, $sql_server, $sql_type);
@@ -34,4 +34,5 @@ include_once "../include/bdd_connect.php";
 			
 			?>
 		</fieldset>
-	
+
+        <?php include("template/footer.php"); ?>
