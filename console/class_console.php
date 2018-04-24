@@ -15,8 +15,7 @@ class console{
 			//on donne acces auw attributs qui existent
 			return $this->$variable;
 		else:
-			echo "ERREUR";
-			//echo "L'attribut ".$variable." n'existe pas !<br />";
+			echo "L'attribut ".$variable." n'existe pas !<br />";
 		endif;
 	}
 
@@ -37,6 +36,30 @@ class console{
 		//verifier que date de sortie est au format date
 		
 		return $this->datesortie = $newDatesortie;
+	}
+	
+	//autres fonctions
+	public function display($connexion){
+		//pour afficher jeux en fonction de la console choisi
+		$arrDisponible = $connexion->query('SELECT jeuDlc.nom FROM console JOIN lien ON lien.idconsole = console.id JOIN jeuDlc ON jeuDlc.id = lien.idJeuDlc WHERE console.id = "'.$this->id.'"');
+		//var_dump($arrDisponible);
+		echo '<article class="console">
+			 <h1>'.$this->nom.'</h1>
+			 <p>Constructeur : '.$this->constructeur.'</p>
+			 <p>Prix : '.$this->prix.'€</p>
+			 <p>Sortie le : '.$this->dateSortie.'</p>
+			 <p><a href="modif_console.php?console='.$this->id.'">Modifier</a></p>
+			 <p><a href="#">Supprimer</a></p>
+			</p>Jeux disponibles : ';
+			if(!empty($arrDisponible[0]->nom)){
+				$strDpb="";
+				foreach($arrDisponible as $dpb){
+					$strDpb = $strDpb.'<a href="../jeudlc/jeuxDlcTest_brouillon.php?jeuChoisi='.$dpb->nom.'">'.$dpb->nom.'</a>, ';
+				}
+				echo substr($strDpb, 0, -2);
+			}
+			
+			echo '</p></article>';
 	}
 }
 ?>

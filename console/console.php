@@ -15,14 +15,12 @@ $data = $db->query('SELECT * from console') ;
 
 //parcours les objets du resultat et en affiche chaque elements
 foreach($data as $row){
-	echo $row->id."<br />";
-	echo "<a href='modif_console.php?console=".$row->id."'>".$row->nom."</a><br />";
-	echo $row->constructeur."<br />";
-	echo $row->prix."<br />";
-	echo $row->dateSortie."<br />";
-	echo "<br />";
+	$allConsole[] = new console($row->id, $row->nom, $row->constructeur, $row->prix, $row->dateSortie);
+}
+
+foreach($allConsole as $console){
+	echo '<fieldset>';
+	$console->display();
+	echo '</fieldset>';
 };
-
-
-
 ?>

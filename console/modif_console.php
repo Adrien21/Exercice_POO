@@ -6,6 +6,8 @@
 	</head>
 	<body>
 	<?php 
+	//varaible pour affichage
+	$affichage = "";
 	//appel objet jeu
 	require_once("class_console.php");
 	//connexion a la bdd
@@ -46,9 +48,9 @@
 	else: 
 		$consoleSelect = new console(0, "", "", 0, "");
 	endif;
-	
+	echo $affichage."<br>";
 	//affichage de la liste des consoles
-	include("console.php");
+	//include("console.php");
 	?>
 		<form method="post" action="#" enctype="multipart/form-data">
 			<!-- Créer, modifier fiche console -->
@@ -66,8 +68,9 @@
 			<label for="crea_editeur">Constructeur : </label><input type="text" name="constructeur" value="<?=$consoleSelect->constructeur?>" required><br><br>
 			<label for="crea_date">Date de sortie: </label><input type="date" name="dateSortie" value="<?=$consoleSelect->dateSortie?>" required><br><br>
 			<label for="crea_prix">Prix : </label><input type="number" name="prix" value="<?=$consoleSelect->prix?>" min="0" step="any" required><br><br>
-
+			
 			<input type="submit" name="Valider" value="<?php if($consoleSelect->id == 0): echo 'Créer'; else: echo 'Modifier'; endif;?>">
 		</form>
+		<a href="./index.php?consoleChoisi=<?=$consoleSelect->id?>">Retour</a>
 	</body>
 </html>
