@@ -2,7 +2,7 @@
 <html lang="fr">
 	<head>
 		<meta charset="utf-8">
-		<title>Modification BDD avec formulaire</title>
+		<title>Choix du jeu à modifier</title>
 	</head>
 	<body>
 		<fieldset>

@@ -18,9 +18,9 @@ class bddConnect{
 		$this->sql_type = $sql_type;
 	}
 	//destruction de l'objet
-	//public function __destruct(){
+	public function __destruct(){
 	//	echo 'Destruction de MaClasse<br />';
-	//}
+	}
 	//getter
 	//acces aux attributs auquels on ne peux theoriquement pas accéder
 	public function __get($variable){
