@@ -7,7 +7,7 @@ class console{
 		$this->nom = $nom;
 		$this->constructeur = $constructeur;
 		$this->prix = $prix;
-		$this->datesortie = $dateSortie;
+		$this->dateSortie = $dateSortie;
     }
 	//getter
 	public function __get($variable){
@@ -15,7 +15,8 @@ class console{
 			//on donne acces auw attributs qui existent
 			return $this->$variable;
 		else:
-			echo "L'attribut ".$variable." n'existe pas !<br />";
+			echo "ERREUR";
+			//echo "L'attribut ".$variable." n'existe pas !<br />";
 		endif;
 	}
 

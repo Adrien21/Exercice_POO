@@ -9,8 +9,8 @@ function var_dump_pre($mixed = null) {
   return null;
 }
 
-include "../news/class_newsavis.php";
-include "../include/bdd_connect.php";
+include_once "class_newsavis.php";
+include_once "bdd_connect.php";
 ?>
 
 <html>
@@ -21,8 +21,7 @@ include "../include/bdd_connect.php";
 		
 		<?php
 			
-			
-			$maCo = new bddConnect();
+			$maCo = new bddConnect($sql_db, $sql_user, $sql_pass, $sql_server, $sql_type);
 			$listeAvis = $maCo->query("SELECT avis.date, avis.texte, avis.note, user.pseudo, jeuDlc.nom FROM avis JOIN user ON idUser = user.id JOIN lien ON lien.id = avis.idLien JOIN jeuDlc ON jeuDlc.id = lien.idJeuDlc ORDER BY avis.date DESC");
 			// Sélectionne TOUS les avis. Pour ne sélectionner que ceux d'un jeu en particulier, la requête devient "SELECT avis.* FROM avis JOIN user ON avis.idUser=user.id JOIN lien ON lien.id=avis.idLien JOIN jeuDlc ON lien.idJeuDlc = jeuDlc.id WHERE jeuDlc.nom = "nom du jeu"'
 			
@@ -32,19 +31,22 @@ include "../include/bdd_connect.php";
 			}
 			//var_dump_pre($allNews);
 			
-			
 		?>
 		
 	</head>
 	<body>
+		<fieldset>
+			<h1>Tous les avis</h1>
 			<?php
 				foreach($allAvis as $avis)
 				{
+					echo '<fieldset>';
 					$avis->display();
+					echo '</fieldset>';
 				}
 			
 			?>
-			
+		</fieldset>
 	</body>
 	
 	<script>

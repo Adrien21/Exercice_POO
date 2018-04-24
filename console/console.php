@@ -11,12 +11,12 @@ require_once("class_console.php");
 //envoi la requete a l'objet connexion
 $data = $db->query('SELECT * from console') ;
 //affiche le resultat
-var_dump ($data);
+//var_dump ($data);
 
 //parcours les objets du resultat et en affiche chaque elements
 foreach($data as $row){
 	echo $row->id."<br />";
-	echo $row->nom."<br />";
+	echo "<a href='modif_console.php?console=".$row->id."'>".$row->nom."</a><br />";
 	echo $row->constructeur."<br />";
 	echo $row->prix."<br />";
 	echo $row->dateSortie."<br />";
