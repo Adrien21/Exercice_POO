@@ -35,8 +35,8 @@ CREATE TABLE `avis` (
   `note` int(11) NOT NULL,
   `date` datetime NOT NULL,
   `texte` text NOT NULL,
-  `idLien` int(11) NOT NULL,
-  `idUser` int(11) NOT NULL
+  `idLien` int(11),
+  `idUser` int(11)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -49,8 +49,8 @@ CREATE TABLE `news` (
   `titre` varchar(50) NOT NULL,
   `date` datetime NOT NULL,
   `texte` text NOT NULL,
-  `idUser` int(11) NOT NULL,
-  `idLien` int(11) NOT NULL
+  `idUser` int(11),
+  `idLien` int(11)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -61,8 +61,8 @@ DROP TABLE IF EXISTS `lien`;
 CREATE TABLE `lien` (
   `id` int(11) NOT NULL,
   `idTest` int(11) DEFAULT NULL,
-  `idJeuDlc` int(11) NOT NULL,
-  `idConsole` int(11) NOT NULL
+  `idJeuDlc` int(11),
+  `idConsole` int(11)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -109,7 +109,7 @@ CREATE TABLE `test` (
   `date` datetime NOT NULL,
   `texte` text NOT NULL,
   `note` int(11) NOT NULL,
-  `idUser` int(11) NOT NULL
+  `idUser` int(11)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -357,35 +357,35 @@ ALTER TABLE `user`
 -- Contraintes pour la table `avis`
 --
 ALTER TABLE `avis`
-  ADD CONSTRAINT `fk_avis_User1` FOREIGN KEY (`idUser`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_avis_lien1` FOREIGN KEY (`idLien`) REFERENCES `lien` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_avis_User1` FOREIGN KEY (`idUser`) REFERENCES `user` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_avis_lien1` FOREIGN KEY (`idLien`) REFERENCES `lien` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION;
 
 --
 -- Contraintes pour la table `jeudlc`
 --
 ALTER TABLE `jeudlc`
-  ADD CONSTRAINT `fk_jeuDlc_jeuDlc1` FOREIGN KEY (`idJeuParent`) REFERENCES `jeudlc` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_jeuDlc_jeuDlc1` FOREIGN KEY (`idJeuParent`) REFERENCES `jeudlc` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION;
 
 --
 -- Contraintes pour la table `lien`
 --
 ALTER TABLE `lien`
-  ADD CONSTRAINT `fk_lien_Test1` FOREIGN KEY (`idTest`) REFERENCES `test` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_lien_console1` FOREIGN KEY (`idConsole`) REFERENCES `console` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_lien_jeuDlc1` FOREIGN KEY (`idJeuDlc`) REFERENCES `jeudlc` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_lien_Test1` FOREIGN KEY (`idTest`) REFERENCES `test` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_lien_console1` FOREIGN KEY (`idConsole`) REFERENCES `console` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_lien_jeuDlc1` FOREIGN KEY (`idJeuDlc`) REFERENCES `jeudlc` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION;
 
 --
 -- Contraintes pour la table `news`
 --
 ALTER TABLE `news`
-  ADD CONSTRAINT `fk_news_User1` FOREIGN KEY (`idUser`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_news_lien1` FOREIGN KEY (`idLien`) REFERENCES `lien` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_news_User1` FOREIGN KEY (`idUser`) REFERENCES `user` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_news_lien1` FOREIGN KEY (`idLien`) REFERENCES `lien` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION;
 
 --
 -- Contraintes pour la table `test`
 --
 ALTER TABLE `test`
-  ADD CONSTRAINT `fk_Test_User1` FOREIGN KEY (`idUser`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_Test_User1` FOREIGN KEY (`idUser`) REFERENCES `user` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
