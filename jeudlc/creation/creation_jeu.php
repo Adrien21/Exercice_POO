@@ -22,10 +22,13 @@
 		$jeuparent = $_POST['jeuparent'];
 
 		$nouvjeu = new jeuDlc(NULL, $nom, $editeur, $dev, $date, $prix, $pegi, $description, $jeuparent);
-		var_dump("<pre>", $nouvjeu, "</pre>");
+		// var_dump("<pre>", $nouvjeu, "</pre>");
 		$requete = "INSERT INTO `jeudlc` (`nom`, `editeur`, `dev`, `dateSortie`, `prix`, `pegi`, `description`, `idJeuParent`) VALUES ('".addslashes($nouvjeu->nom)."', '".$nouvjeu->editeur."', '".$nouvjeu->dev."', '".$nouvjeu->dateSortie."', '".$nouvjeu->prix."', '".$nouvjeu->pegi."', '".addslashes($nouvjeu->description)."', ".$nouvjeu->idJeuParent.")";
 		$db->query($requete);
-		var_dump("<pre>", $requete, "</pre>");
+		// var_dump("<pre>", $requete, "</pre>");
+	
+		echo "<h1>Succès !</h1> Vous allez être redirigé dans 3 secondes.";
+		header("refresh:3;url=../affichage/affichage_jeux.php");
 	?>
 </body>
 </html>

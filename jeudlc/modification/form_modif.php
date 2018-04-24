@@ -61,12 +61,12 @@
 			<input type="submit" name="Modifier" value="Modifier">
 
 		</form>
-        <?php 
-                var_dump($jeuchoisi->nom);
-                var_dump($nomdlc);
+        <!-- <?php 
+                // var_dump($jeuchoisi->nom);
+                // var_dump($nomdlc);
                 
     
-        ?>
+        ?> -->
         
 	</body>
 </html>

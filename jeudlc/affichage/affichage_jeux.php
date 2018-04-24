@@ -141,12 +141,15 @@
 						
 					echo '</p>';
 					echo '</aside>';
-					echo '</fieldset>';
-					
+					echo '</fieldset>
+					<form method="post" action="../modification/form_modif.php" enctype="multipart/form-data">
+						<input type="hidden" name="jeuamodif" value="' .$jeu->id .'">
+			            <input type="submit" name="modifier" value="Modifier le jeu">
+			        </form>';
 				} 
 				
 			} else if(!isset($jeuChoisi)) {
-				
+				echo '<a href="../creation/form_creation.php">Ajouter un jeu</a></br></br>';
 				foreach($listeJeux as $nomJeu){
 					echo '<fieldset>';
 					echo '<a href="?jeuChoisi='.$nomJeu->nom.'">'.$nomJeu->nom.'</a>';
