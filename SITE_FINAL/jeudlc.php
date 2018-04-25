@@ -140,6 +140,9 @@ include("template/header.php");
 						<input type="hidden" name="jeuamodif" value="' .$jeu->id .'">
 						<input type="submit" name="modifier" value="Modifier le jeu">
 					</form>';
+					require_once('supprime/class_supprime.php'); 
+					$affichche_suppr = new supprime($jeu->id, $jeu->nom, "jeudlc"); 
+					
 					include("test/affichage_test.php");
 					include("news/newsjeu.php");
 					include("avis/avisjeu.php");
