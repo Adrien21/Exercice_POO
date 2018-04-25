@@ -37,7 +37,7 @@
 					<option selected>Lire un autre test</option>
 					<?php
 						foreach($listeTests as $titreTest){
-							echo '<option name="'.$titreTest->titre.'" value="'.$titreTest->titre.'" >'.$titreTest->titre.'</option>';
+							echo '<option name="'.$titreTest->titre.'" value="'.$titreTest->id.'" >'.$titreTest->titre.'</option>';
 						}
 					?>
 				</select>
@@ -45,7 +45,7 @@
 		</nav>
 		<?php
 		//pour la table test + obtenir pseudo user
-		$result2 = $db->query('SELECT test.*, user.pseudo FROM test JOIN lien ON lien.idTest = test.id JOIN jeuDlc ON jeuDlc.id = lien.idJeuDlc JOIN user ON user.id = test.idUser WHERE test.titre ="'.addslashes($testChoisi).'"');
+		$result2 = $db->query('SELECT test.*, user.pseudo FROM test JOIN user ON user.id = test.idUser WHERE test.id ="'.$testChoisi.'"');
 		
 		foreach($result2 as $row) {
 			$test = new test($row->id, $row->titre, $row->date, $row->texte, $row->note, $row->pseudo);
@@ -84,14 +84,19 @@
 				echo $test->texte;
 		
 			echo '</article>';
-			echo '</fieldset>';
+			echo '</fieldset>
+					<form method="post" action="test/form_modif.php" enctype="multipart/form-data">
+						<input type="hidden" name="testamodif" value="' .$test->id .'">
+						<input type="submit" name="modifier" value="Modifier le test">
+					</form>';
 			
 		} else if(isset($testChoisi)) {
 			echo "<p>Aucun test pour ce titre n'a été rédigé pour le moment.</p>";
 		}} else if(!isset($testChoisi)) {
+				echo '<a href="test/form_creation.php">Ajouter un test</a></br></br>';
 			foreach($listeTests as $titreTest){
 				echo '<fieldset>';
-				echo '<a href="?testChoisi='.$titreTest->titre.'">'.$titreTest->titre.'</a>';
+				echo '<a href="?testChoisi='.$titreTest->id.'">'.$titreTest->titre.'</a>';
 				echo '<p>'.substr($titreTest->texte, 0, 119).' ... </p><br/>';
 				echo '</fieldset>';
 			}
