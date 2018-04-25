@@ -4,8 +4,8 @@
 include("template/header.php");
 
 
-include_once "news/class_newsavis.php";
-include_once "include/bdd_connect.php";
+include_once ("news/class_newsavis.php");
+include_once ("include/bdd_connect.php");
 
 			
 			$maCo = new bddConnect($sql_db, $sql_user, $sql_pass, $sql_server, $sql_type);
@@ -21,9 +21,10 @@ include_once "include/bdd_connect.php";
 		?>
 		
 	
-	<body>
+	
 		<fieldset>
 			<h1>Toutes les news</h1>
+            <a href="news/form_creation.php">Ajouter une News</a><br><br>
 			<?php
 				foreach($allNews as $new)
 				{

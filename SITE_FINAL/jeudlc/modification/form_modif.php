@@ -61,6 +61,14 @@
 			<input type="submit" name="Modifier" value="Modifier">
 
 		</form>
+        <br><br>
+        <a href="../../index.php">Retour à l'Accueil</a>
+        <br><br>
+        <a href="../../jeudlc.php">Retour à la page des Jeux</a>
+
+
+
+            
         <!-- <?php 
                 // var_dump($jeuchoisi->nom);
                 // var_dump($nomdlc);
