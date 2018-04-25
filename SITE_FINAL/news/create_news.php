@@ -16,7 +16,7 @@
 		//$user = $maCo->query("SELECT user.id FROM user WHERE user.pseudo = 'admin'")[0]->id;
 		
 		
-		$maCo->query("INSERT INTO `news` (`titre`, `texte`, `idUser`, `idLien`, `date`) VALUES ('".addslashes(htmlspecialchars($_POST['crea_titre']))."', '".addslashes(htmlspecialchars($_POST['crea_texte']))."', ".intval($_POST['user']).", ".intval($lien).", '".date("Y-m-d H:i:s")."')");
+		$maCo->query("INSERT INTO news (titre, texte, idUser, idLien, date) VALUES ('".addslashes(htmlspecialchars($_POST['crea_titre']))."', '".addslashes(htmlspecialchars($_POST['crea_texte']))."', ".intval($_POST['user']).", ".intval($lien).", '".date("Y-m-d H:i:s")."')");
 		echo 'La news "'.$_POST['crea_titre'].'" a bien été créée.';
 	?>
 </body>
