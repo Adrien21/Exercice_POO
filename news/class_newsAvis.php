@@ -6,15 +6,17 @@
 		protected $_pseudo;
 		protected $_texte;
 		protected $_jeuDlc;
+		protected $_id;
 
 		
-		protected function __construct($date, $texte, $user, $jeu)
+		protected function __construct($date, $texte, $user, $jeu, $id)
 		{
 
 			$this->_date = $date;
 			$this->_texte = $texte;
 			$this->_pseudo = $user;
 			$this->_jeuDlc = $jeu;
+			$this->_id = $id;
 
 		}
 		
@@ -42,9 +44,12 @@
 			return $this->_texte;
 		}
 		
-		 protected function getJeuDlc(){
-			 return $this->_jeuDlc;
-		 }
+		protected function getJeuDlc(){
+			return $this->_jeuDlc;
+		}
+		protected function getId(){
+			return $this->_id;
+		}
 		
 		
 		
@@ -76,9 +81,9 @@
 	{
 		private $_note;
 		
-		public function __construct($date, $texte, $user, $note, $jeu){
+		public function __construct($date, $texte, $user, $note, $jeu, $id){
 			$this->_note = $note;
-			parent::__construct($date, $texte, $user, $jeu);
+			parent::__construct($date, $texte, $user, $jeu, $id);
 		}
 		
 		public function getNote(){
@@ -94,8 +99,11 @@
 			echo '<article class="avis_indiv">
 				 <h1>Note pour '.$this->_jeuDlc.' : '.$this->_note.'/20</h1>
 				 <p>'.$this->_texte.'</p>
-				 <p>Ecrit le : '.$this->_date.' par '.$this->_pseudo.'</p>
-				 </article>';
+				 <p>Ecrit le : '.$this->_date.' par '.$this->_pseudo.'</p>';
+				require_once("../class_supprime.php");
+				$affsuppr = new supprime($this->_id, $this->_note, "avis");
+				 
+				echo'</article>';
 		}
 	}
 	
@@ -103,9 +111,9 @@
 	{
 		private $_titre;
 		
-		public function __construct($date, $texte, $user, $titre, $jeu){
+		public function __construct($date, $texte, $user, $titre, $jeu, $id){
 			$this->_titre = $titre;
-			parent::__construct($date, $texte, $user, $jeu);
+			parent::__construct($date, $texte, $user, $jeu, $id);
 		}
 		
 		public function getTitre(){
@@ -121,8 +129,12 @@
 			echo '<article class="new_indiv">
 				 <h2>'.$this->_titre.'</h2>
 				 <p>'.$this->_texte.'</p>
-				 <p>Ecrit le : '.$this->_date.' par '.$this->_pseudo.'<br/>Pour le jeu '.$this->_jeuDlc.'</p>
-				 </article>';
+				 <p>Ecrit le : '.$this->_date.' par '.$this->_pseudo.'<br/>Pour le jeu '.$this->_jeuDlc.'</p>';
+				
+				require_once("../class_supprime.php");
+				$affsuppr = new supprime($this->_id, $this->_titre, "news");
+				
+				echo '</article>';
 		}
 	}
 	
