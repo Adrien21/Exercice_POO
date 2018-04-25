@@ -15,16 +15,21 @@ session_start();
     </head>
     <body>
         <header>
+            
+            <h1 style="text-align: center">- GAME THEM ALL -</h1>
+            
             <nav>
                 <ul>
                     <li><a href="index.php"> Accueil</a></li>
                     <li><a href="jeudlc.php"> Tous les Jeux</a></li>
                     <li><a href="news.php"> Toutes les News</a></li>
-                    <li><a href="test.php"> Tous les Tests</a></li>
+                <!--    <li><a href="test.php"> Tous les Tests</a></li>  --------------------------On peut rajouter une section Test avec plus de temps -->
                     <li><a href="console.php"> Toutes les consoles</a></li>
                 </ul>  
             </nav>
         </header>
+        
+        
         <main>
         
 

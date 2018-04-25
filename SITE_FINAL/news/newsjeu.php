@@ -19,7 +19,7 @@
         //var_dump_pre($allNews);
 
     ?>
-
+    
     <?php
         foreach($allNews as $new)
         {

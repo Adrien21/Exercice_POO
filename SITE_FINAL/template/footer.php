@@ -1,6 +1,8 @@
         </main>
         <footer>
-              <h2> Ceci est le pied de page </h2>
+            <h2> Game Them All </h2>
+            <img src="img/logo.jpg" alt="Logo de Game them all" height="200"><br><br>
+             <a href="mentionslegales.php"> Mentions légales </a>  
         </footer>
         <script>
 		let jeuChoisi = document.getElementsByName("jeuChoisi")[0];

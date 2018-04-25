@@ -88,11 +88,14 @@
 							foreach($listeConsole as $row){
 								$allConsole[] = new console($row->id, $row->nom, $row->constructeur, $row->prix, $row->dateSortie);
 							}
-							foreach($allConsole as $console){
-								echo '<fieldset>';
-								$console->display($connexion);
-								echo '</fieldset>';
-							}
+							//if pour cas base de données vide
+							if(isset($allConsole)):
+								foreach($allConsole as $console){
+									echo '<fieldset>';
+									$console->display($connexion);
+									echo '</fieldset>';
+								}
+							endif;
 						}
 
 						?>
