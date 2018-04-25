@@ -21,12 +21,13 @@
     ?>
     
     <?php
+	if(isset($allNews)):
         foreach($allNews as $new)
         {
             echo '<fieldset>';
             $new->display();
             echo '</fieldset>';
         }
-
+	endif;
 
 ?>
