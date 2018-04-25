@@ -100,7 +100,7 @@
 				 <h1>Note pour '.$this->_jeuDlc.' : '.$this->_note.'/20</h1>
 				 <p>'.$this->_texte.'</p>
 				 <p>Ecrit le : '.$this->_date.' par '.$this->_pseudo.'</p>';
-				require_once("../class_supprime.php");
+				require_once("supprime/class_supprime.php");
 				$affsuppr = new supprime($this->_id, $this->_note, "avis");
 				 
 				echo'</article>';
@@ -131,7 +131,7 @@
 				 <p>'.$this->_texte.'</p>
 				 <p>Ecrit le : '.$this->_date.' par '.$this->_pseudo.'<br/>Pour le jeu '.$this->_jeuDlc.'</p>';
 				
-				require_once("../class_supprime.php");
+				require_once("supprime/class_supprime.php");
 				$affsuppr = new supprime($this->_id, $this->_titre, "news");
 				
 				echo '</article>';
