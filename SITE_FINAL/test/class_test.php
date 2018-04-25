@@ -66,8 +66,11 @@ class test {
         $this->note = $newNote;
 		return $this;
     }
-    
-    
+
+    public function setPseudo($newPseudo){
+        $this->pseudo = $newPseudo;
+        return $this;
+    }
 }
 ?>
 
