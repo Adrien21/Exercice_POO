@@ -15,6 +15,11 @@ session_start();
     </head>
     <body>
         <header>
+            
+            <h1 style="text-align: center">- GAME THEM ALL -</h1>
+            
+            <img src="img/videogames.jpg" alt="Les consoles sont nos amies">
+            
             <nav>
                 <ul>
                     <li><a href="index.php"> Accueil</a></li>
@@ -25,6 +30,8 @@ session_start();
                 </ul>  
             </nav>
         </header>
+        
+        
         <main>
         
 
