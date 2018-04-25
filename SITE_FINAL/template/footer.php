@@ -13,5 +13,15 @@
 		}
         
 	</script>
+    
+    <script>
+        let testChoisi = document.getElementsByName("testChoisi")[0];
+        let selectTest = document.getElementsByName("selectTest")[0];
+        
+        testChoisi.onchange = function(){
+            selectTest.submit();
+        }
+        
+    </script>
     </body>
 </html> 
