@@ -140,7 +140,7 @@ include("template/header.php");
 						<input type="hidden" name="jeuamodif" value="' .$jeu->id .'">
 			            <input type="submit" name="modifier" value="Modifier le jeu">
 			        </form>';
-                    include("jeudlc/affichage_test.php");
+                    include("test/affichage_test.php");
 				} 
 				
 			} else if(!isset($jeuChoisi)) {
