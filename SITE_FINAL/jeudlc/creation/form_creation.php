@@ -25,6 +25,20 @@
 				<option value="NULL">Aucun</option>
 				<?php
 				require_once("liste_jeux.php");
+
+		
+				$requete = "SELECT * FROM console";
+				$listeConsole = $db->query($requete);
+				var_dump ($listeConsole);
+				?>
+			</select>
+			<br>
+			<select multiple name="crea_console[]" >
+				<option disabled>séléctionner une console</option>
+				<?php
+				foreach($listeConsole as $nomConsole){
+					echo '<option name="'.$nomConsole->id.'" value="'.$nomConsole->id.'" >'.$nomConsole->nom.'</option>';
+				}
 				?>
 			</select>
 			<input type="submit" name="Créer" value="Créer">
