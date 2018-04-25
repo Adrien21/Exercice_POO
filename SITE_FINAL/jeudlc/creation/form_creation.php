@@ -29,7 +29,9 @@
 			</select>
 			<input type="submit" name="Créer" value="Créer">
 		</form>
-<br><br>
+        <br><br>
+        <a href="../../jeudlc.php">Retour à la page des Jeux</a>
+        <br><br>
         <a href="../../index.php">Retour à l'Accueil</a><br><br>
 	</body>
 </html>
