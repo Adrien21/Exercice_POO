@@ -41,7 +41,7 @@ class console{
 	//autres fonctions
 	public function display($connexion){
 		//pour afficher jeux en fonction de la console choisi
-		$arrDisponible = $connexion->query('SELECT jeuDlc.nom FROM console JOIN lien ON lien.idconsole = console.id JOIN jeuDlc ON jeuDlc.id = lien.idJeuDlc WHERE console.id = "'.$this->id.'"');
+		$arrDisponible = $connexion->query('SELECT jeuDlc.nom FROM console JOIN lien ON lien.idconsole = console.id JOIN jeuDlc ON jeuDlc.id = lien.idJeuDlc WHERE console.id = '.$this->id);
 		//var_dump($arrDisponible);
 		echo '<article class="console">
 			 <h1>'.$this->nom.'</h1>
@@ -49,15 +49,18 @@ class console{
 			 <p>Prix : '.$this->prix.'€</p>
 			 <p>Sortie le : '.$this->dateSortie.'</p>
 			 <p><a href="modif_console.php?console='.$this->id.'">Modifier</a></p>';
+			 require_once("../class_supprime.php");
+			 $affsuppr = new supprime($this->id, $this->nom, "console");
 ?>
-		<p></p>
+		<!--<p></p>
 		<form name="supprime" action="../supprime.php" method="post">
 			<input type="hidden" name="id" value="<?=$this->id?>">
 			<input type="hidden" name="nom" value="<?=$this->nom?>">
 			<input type="hidden" name="page_origine" value="<?=$_SERVER['PHP_SELF']?>">
-			<input type="hidden" name="table" value="console">
+			<input type="hidden" name="table" value="<?='console'?>">
 			<input type="submit" value="Supprimer">
 		</form>
+		-->
 		<?='</p>Jeux disponibles : ';
 		if(!empty($arrDisponible[0]->nom)){
 			$strDpb="";
