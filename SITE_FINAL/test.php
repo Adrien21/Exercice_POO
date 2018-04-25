@@ -5,8 +5,8 @@
 	} else if(isset($_GET['testChoisi'])){
 		$testChoisi = $_GET['testChoisi'];
 	}
-	require_once("class_test.php");
-	require_once("../include/bdd_connect.php");
+	require_once("test/class_test.php");
+	require_once("include/bdd_connect.php");
 	
 	//  Connexion a la BDD
 	$db = new bddConnect($sql_db, $sql_user, $sql_pass, $sql_server, $sql_type);
