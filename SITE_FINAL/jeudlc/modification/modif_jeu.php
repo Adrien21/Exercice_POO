@@ -32,13 +32,13 @@
 		$jeumodif = new jeuDlc($id, $nom, $editeur, $dev, $date, $prix, $pegi, $description, $jeuparent);
 		//var_dump("<pre>", $jeumodif, "</pre>");
 		$requete = "UPDATE `jeudlc` 
-                    SET nom = '".$jeumodif->nom."' , 
-                        editeur = '".$jeumodif->editeur."' , 
-                        dev = '".$jeumodif->dev."' , 
+                    SET nom = '".addslashes($jeumodif->nom)."' , 
+                        editeur = '".addslashes($jeumodif->editeur)."' , 
+                        dev = '".addslashes($jeumodif->dev)."' , 
                         dateSortie = '".$jeumodif->dateSortie."' ,  
                         prix = '".$jeumodif->prix."' ,  
                         pegi = '".$jeumodif->pegi."' ,
-                        description = '".$jeumodif->description."' , 
+                        description = '".addslashes($jeumodif->description)."' , 
                         idJeuParent = ".$jeumodif->idJeuParent."
                     WHERE id= '".$jeumodif->id."'" ;
 		$db->query($requete);
