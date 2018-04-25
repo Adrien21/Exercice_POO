@@ -84,16 +84,11 @@
 				echo $test->texte;
 		
 			echo '</article>';
-			echo '</fieldset>
-					<form method="post" action="test/form_modif.php" enctype="multipart/form-data">
-						<input type="hidden" name="testamodif" value="' .$test->id .'">
-						<input type="submit" name="modifier" value="Modifier le test">
-					</form>';
+			echo '</fieldset>';
 			
 		} else if(isset($testChoisi)) {
 			echo "<p>Aucun test pour ce titre n'a été rédigé pour le moment.</p>";
 		}} else if(!isset($testChoisi)) {
-				echo '<a href="test/form_creation.php">Ajouter un test</a></br></br>';
 			foreach($listeTests as $titreTest){
 				echo '<fieldset>';
 				echo '<a href="?testChoisi='.$titreTest->id.'">'.$titreTest->titre.'</a>';

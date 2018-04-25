@@ -52,7 +52,7 @@
 							// Implémentation dans la BDD
 							$db->query("INSERT INTO user (pseudo, mdp, nom, prenom, email, type) VALUES ('" .$pseudo ."', '" .password_hash($mdp, PASSWORD_DEFAULT) ."', '" .$nom ."', '" .$prenom ."', '" .$email ."', 'membre')");
 							echo "<h1>Succès !</h1>Vous serez redirigé dans 3 secondes";
-							header("refresh:3;url=userinterface.php");
+							header("refresh:3;url=connexion.html");
 						} else {
 							echo "<span class='error'>Erreur : cette adresse email est déjà utilisée</span><br/>";
 							echo "<br/><a href='inscription.html'> << retour </a>";

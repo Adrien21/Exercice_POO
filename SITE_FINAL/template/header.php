@@ -23,6 +23,11 @@ session_start();
                 <a href="user/connexion.html"> Se connecter</a>
             </span>
             <br><br>
+            
+            <?php
+                echo "<h3>Bienvenue ".$_SESSION['pseudo']." !!</h3>";
+            ?>
+            
             <nav>
                 <ul>
                     <li><a href="index.php"> Accueil</a></li>
