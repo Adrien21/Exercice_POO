@@ -19,5 +19,9 @@
 		$maCo->query("INSERT INTO news (titre, texte, idUser, idLien, date) VALUES ('".addslashes(htmlspecialchars($_POST['crea_titre']))."', '".addslashes(htmlspecialchars($_POST['crea_texte']))."', ".intval($_POST['user']).", ".intval($lien).", '".date("Y-m-d H:i:s")."')");
 		echo 'La news "'.$_POST['crea_titre'].'" a bien été créée.';
 	?>
+     <br><br>
+        <a href="../index.php">Retour à l'Accueil</a>
+        <br><br>
+        <a href="../news.php">Retour à la page des News</a>
 </body>
 </html>
