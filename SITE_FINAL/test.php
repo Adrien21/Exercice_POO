@@ -85,7 +85,7 @@
 		
 			echo '</article>';
 			echo '</fieldset>
-					<form method="post" action="test/form_modif.php" enctype="multipart/form-data">
+					<form method="post" action="test/form_modif.php" enctype="multipart/form-data" style="display: none;">
 						<input type="hidden" name="testamodif" value="' .$test->id .'">
 						<input type="submit" name="modifier" value="Modifier le test">
 					</form>';

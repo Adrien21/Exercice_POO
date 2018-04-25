@@ -1,6 +1,7 @@
 <?php 
-session_start(); 
 
+session_start(); 
+ //session_destroy(); //------------------------------------------>detruire la session
 /*  si on a besoin de rajouter du php avant  */
 
 ?>
@@ -18,14 +19,27 @@ session_start();
             
             <h1 style="text-align: center">- GAME THEM ALL -</h1>
             <br>
-            <span>
-                <a href="user/inscription.html">S'inscrire</a> ou
-                <a href="user/connexion.html"> Se connecter</a>
-            </span>
-            <br><br>
             
             <?php
-                echo "<h3>Bienvenue ".$_SESSION['pseudo']." !!</h3>";
+            
+            if (isset($_SESSION['userGranted'])) {
+                    if ($_SESSION['userGranted'] == true ) {
+                
+                echo "<h3>Bienvenue,  ".$_SESSION['pseudo'].", vous êtes un ".$_SESSION['role']." de GAME THEM ALL!!</h3>";
+                echo "<button type=\"submit\" name='btLogOut'>Se deconnecter</button>" ; 
+                
+            }
+                
+                    
+            }
+            else {
+                        echo "<h3> Connectez vous </h3>";
+                        echo "<span>
+                <a href=\"user/inscription.html\">S'inscrire</a> ou
+                <a href=\"user/connexion.html\"> Se connecter</a>
+            </span>
+            <br><br>" ;
+                    } 
             ?>
             
             <nav>
@@ -37,7 +51,7 @@ session_start();
                     <li><a href="console.php"> Toutes les consoles</a></li>
                 </ul>  
             </nav>
-            
+          
         </header>
         
         

@@ -28,20 +28,30 @@
 				array_push($ar_identification_P, ($recherche->pseudo));
 			}
 			
+			
 			// Vérification de l'existence du pseudo
-			if (array_key_exists('0', $ar_identification_P)) {
-				// Récupération du mot de passe si la clé [0] existe
-				$identification_MDP = $db->query("SELECT mdp FROM user WHERE pseudo='" .$pseudo ."'");
-				$ar_identification_MDP = [];
-				foreach ($identification_MDP as $recherche) {
-					array_push($ar_identification_MDP, ($recherche->mdp));
-				}
-				// Vérification du mot de passe
-				if (password_verify($mdp, $ar_identification_MDP[0])) {
-					echo "<h1>Vous êtes connecté !</h1>Vous serez redirigé dans 3 secondes";
-                    $_SESSION['userGranted'] = true;
-                    $_SESSION['pseudo'] = $pseudo;
-                    // ----------------------------------------------------- rajouter la suite
+            if (array_key_exists('0', $ar_identification_P)) {
+                // Récupération du mot de passe si la clé [0] existe
+                $identification_MDP = $db->query("SELECT mdp FROM user WHERE pseudo='" .$pseudo ."'");
+                $ar_identification_MDP = [];
+                foreach ($identification_MDP as $recherche) {
+                    array_push($ar_identification_MDP, ($recherche->mdp));
+                }
+                
+                // Récupération du role si la clé [0] existe
+                $identification_Role = $db->query("SELECT type FROM user WHERE pseudo='" .$pseudo ."'");
+                $ar_identification_Role = [];
+                foreach ($identification_Role as $recherche) {
+                    array_push($ar_identification_Role, ($recherche->type));
+                }
+                
+                // Vérification du mot de passe
+                if (password_verify($mdp, $ar_identification_MDP[0])) {
+                    echo "<h1>Vous êtes connecté !</h1>Vous serez redirigé dans 3 secondes";
+                    //session var
+                    $_SESSION['userGranted']= true;
+                    $_SESSION['pseudo']= $pseudo;
+                    $_SESSION['role']= $ar_identification_Role[0];
 					header("refresh:3;url=../index.php");
 				} else {
 					echo "Mot de passe invalide";
@@ -53,6 +63,8 @@
 				echo "<br/><a href='inscription.html'> << aller à la page d'inscription </a>";
 				exit;
 			}
+        
+            
 		?>
 	</body>
 </html>
