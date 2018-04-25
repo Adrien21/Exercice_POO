@@ -23,7 +23,11 @@
 		$nouvtest = new test(NULL, $titre, $date, $texte, $note, $user);
 		$requete = "INSERT INTO `test` (`titre`, `texte`, `note`, `date`, idUser) VALUES ('".$nouvtest->titre."', '".$nouvtest->texte."', ".$nouvtest->note.", '".$nouvtest->date."', " .$nouvtest->pseudo .")";
 		$db->query($requete);
-		echo 'Le test "'.$nouvtest->titre.'" a bien été créé.';
+		echo 'Le test "'.$nouvtest->titre.'" a bien été créé.</br></br>';
 	?>
+
+	<a href="../test.php">Retour à la page des Tests </a>
+	<br><br>
+	<a href="../index.php">Retour à l'Accueil</a><br><br>
 </body>
 </html>
