@@ -5,3 +5,4 @@ Finaliser la modification des Test
 Debugger la version Postgresql
 Ajouter des photos aux jeux
 Créer une table pour les genres, pour les photos
+Créer un fichier bdd_id.php dans le dossier include
