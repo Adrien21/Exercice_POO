@@ -50,7 +50,7 @@
 			<?php if($consoleSelect->id == 0): 
 				echo "Créer une nouvelle console"; 
 			else: 
-				echo "<a href='modif_console.php'>Créer nouvelle console</a><br>";
+				//echo "<a href='modif_console.php'>Créer nouvelle console</a><br>";
 				echo "Vous modifier la console ".$consoleSelect->id." : ".$consoleSelect->nom; 
 
 			endif;

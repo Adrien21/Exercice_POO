@@ -10,6 +10,7 @@ class supprime{
 		?>
 		<p></p>
 		<form name="supprime" action="../supprime.php" method="post">
+			Cocher pour confirmer la suppression :<input type="checkbox" name="confirm" alt="Cocher pour confirmer la suppression">
 			<input type="hidden" name="id" value="<?=$this->id?>">
 			<input type="hidden" name="nom" value="<?=$this->nom?>">
 			<input type="hidden" name="page_origine" value="<?=$_SERVER['PHP_SELF']?>">

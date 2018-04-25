@@ -50,7 +50,6 @@ class console{
 			 <p>Prix : '.$this->prix.'€</p>
 			 <p>Sortie le : '.$this->dateSortie.'</p>
 			 <p><a href="console/modif_console.php?console='.$this->id.'">Modifier</a></p>
-			 <p><a href="#">Supprimer</a></p>
 			</p>Jeux disponibles : ';
 			if(!empty($arrDisponible[0]->nom)){
 				$strDpb="";
