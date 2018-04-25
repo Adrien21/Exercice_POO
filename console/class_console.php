@@ -48,18 +48,26 @@ class console{
 			 <p>Constructeur : '.$this->constructeur.'</p>
 			 <p>Prix : '.$this->prix.'€</p>
 			 <p>Sortie le : '.$this->dateSortie.'</p>
-			 <p><a href="modif_console.php?console='.$this->id.'">Modifier</a></p>
-			 <p><a href="#">Supprimer</a></p>
-			</p>Jeux disponibles : ';
-			if(!empty($arrDisponible[0]->nom)){
-				$strDpb="";
-				foreach($arrDisponible as $dpb){
-					$strDpb = $strDpb.'<a href="../jeudlc/jeuxDlcTest_brouillon.php?jeuChoisi='.$dpb->nom.'">'.$dpb->nom.'</a>, ';
-				}
-				echo substr($strDpb, 0, -2);
+			 <p><a href="modif_console.php?console='.$this->id.'">Modifier</a></p>';
+?>
+		<p></p>
+		<form name="supprime" action="../supprime.php" method="post">
+			<input type="hidden" name="id" value="<?=$this->id?>">
+			<input type="hidden" name="nom" value="<?=$this->nom?>">
+			<input type="hidden" name="page_origine" value="<?=$_SERVER['PHP_SELF']?>">
+			<input type="hidden" name="table" value="console">
+			<input type="submit" value="Supprimer">
+		</form>
+		<?='</p>Jeux disponibles : ';
+		if(!empty($arrDisponible[0]->nom)){
+			$strDpb="";
+			foreach($arrDisponible as $dpb){
+				$strDpb = $strDpb.'<a href="../jeudlc/jeuxDlcTest_brouillon.php?jeuChoisi='.$dpb->nom.'">'.$dpb->nom.'</a>, ';
 			}
-			
-			echo '</p></article>';
+			echo substr($strDpb, 0, -2);
+		}
+		
+		echo '</p></article>';
 	}
 }
 ?>
