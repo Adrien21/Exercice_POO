@@ -18,12 +18,16 @@ $data = $db->query('SELECT * from console') ;
 foreach($data as $row){
 	$allConsole[] = new console($row->id, $row->nom, $row->constructeur, $row->prix, $row->dateSortie);
 }
-echo "<a href='modif_console.php'>Créer nouvelle console</a>";
-foreach($allConsole as $console){
-	echo '<fieldset>';
-	$console->display($db);
-	echo '</fieldset>';
-};
+echo "<a href='console/modif_console.php'>Créer nouvelle console</a>";
+if(isset($allConsole)):
+	foreach($allConsole as $console){
+		echo '<fieldset>';
+		$console->display($db);
+		echo '</fieldset>';
+	};
+else:
+	echo "<p>Aucune console</p>";
+endif;
 
 include("template/footer.php");
 ?>
