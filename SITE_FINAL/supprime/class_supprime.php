@@ -9,7 +9,7 @@ class supprime{
 
 		?>
 		<p></p>
-		<form name="supprime" action="../supprime.php" method="post">
+		<form name="supprime" action="supprime/supprime.php" method="post">
 			Cocher pour confirmer la suppression :<input type="checkbox" name="confirm" alt="Cocher pour confirmer la suppression">
 			<input type="hidden" name="id" value="<?=$this->id?>">
 			<input type="hidden" name="nom" value="<?=$this->nom?>">
