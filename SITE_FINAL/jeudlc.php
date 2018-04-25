@@ -161,6 +161,8 @@ include("template/header.php");
 					echo '<p>'.substr($nomJeu->description, 0, 120).' ... </p><br/>';
 					echo '</fieldset>';
 				}
+				if(empty($listeJeux) == 1): echo "<p>Aucun jeu</p>";
+				endif;
 		  }?>
 
 <?php

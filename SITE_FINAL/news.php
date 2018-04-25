@@ -26,12 +26,16 @@ include_once ("include/bdd_connect.php");
 			<h1>Toutes les news</h1>
             <a href="news/form_creation.php">Ajouter une News</a><br><br>
 			<?php
-				foreach($allNews as $new)
-				{
-					echo '<fieldset>';
-					$new->display();
-					echo '</fieldset>';
-				}
+				if(isset($allNews)):
+					foreach($allNews as $new)
+					{
+						echo '<fieldset>';
+						$new->display();
+						echo '</fieldset>';
+					}
+				else:
+					echo "<p>Aucune news</p>";
+			endif;
 			
 			?>
 		</fieldset>
