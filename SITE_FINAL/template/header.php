@@ -17,7 +17,12 @@ session_start();
         <header>
             
             <h1 style="text-align: center">- GAME THEM ALL -</h1>
-            
+            <br>
+            <span>
+                <a href="user/inscription.html">S'inscrire</a> ou
+                <a href="user/connexion.html"> Se connecter</a>
+            </span>
+            <br><br>
             <nav>
                 <ul>
                     <li><a href="index.php"> Accueil</a></li>
@@ -27,6 +32,7 @@ session_start();
                     <li><a href="console.php"> Toutes les consoles</a></li>
                 </ul>  
             </nav>
+            
         </header>
         
         
