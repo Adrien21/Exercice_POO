@@ -40,6 +40,7 @@ class console{
 	
 	//autres fonctions
 	public function display($connexion){
+		require_once('supprime/class_supprime.php');
 		//pour afficher jeux en fonction de la console choisi
 		$arrDisponible = $connexion->query('SELECT jeuDlc.nom FROM console JOIN lien ON lien.idconsole = console.id JOIN jeuDlc ON jeuDlc.id = lien.idJeuDlc WHERE console.id = "'.$this->id.'"');
 		//var_dump($arrDisponible);
@@ -58,7 +59,7 @@ class console{
 				}
 				echo substr($strDpb, 0, -2);
 			}
-			
+			$affichche_suppr = new supprime($this->id, $this->nom, "console");
 			echo '</p></article>';
 	}
 }
