@@ -25,7 +25,16 @@
 						$i++;
 					}
 				?>
-			</select>
+			</select></br></br>
+			<label for="user">Vous êtes : </label><select name="user">
+				<?php
+					$requete = $db->query("SELECT pseudo, id FROM user");
+					foreach($requete as $pseud)
+					{
+						echo '<option value="'.$pseud->id.'">'.$pseud->pseudo.'</option>';
+					}
+				?>
+			</select></br></br>
 			<input type="submit" name="Créer" value="Créer">
 		</form>
 	</body>
