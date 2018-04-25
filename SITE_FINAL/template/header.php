@@ -11,7 +11,7 @@ session_start();
         <link rel="stylesheet" href="NOTRE CSS OPTIONNEL">
         <meta charset="utf-8">
         <meta name="author" content="Adrien Arnaud Henry Eric Léo Valentin">
-        <title> Site de Jeu Video </title>
+        <title> GAME THEM ALL </title>
     </head>
     <body>
         <header>
