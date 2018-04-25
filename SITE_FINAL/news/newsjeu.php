@@ -1,11 +1,11 @@
 <?php
-  include("template/header.php"); 
+
 
 
 
 
     include_once("class_newsavis.php");
-    include_once("/bdd_connect.php");
+    
 
 
         $maCo = new bddConnect($sql_db, $sql_user, $sql_pass, $sql_server, $sql_type);
@@ -28,5 +28,5 @@
             echo '</fieldset>';
         }
 
-include("template/footer.php");
+
 ?>
