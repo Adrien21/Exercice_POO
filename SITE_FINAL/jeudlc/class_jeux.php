@@ -26,7 +26,7 @@ class jeuDlc {
 			//on donne acces auw attributs qui existent
 			return $this->$variable;
 		else:
-			echo "L'attribut ".$variable." n'existe pas !<br />";
+			//echo "L'attribut ".$variable." n'existe pas !<br />";
 		endif;
 	}
 /*
