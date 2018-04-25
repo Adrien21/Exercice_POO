@@ -14,8 +14,8 @@
 		
 		$lien = $db->query("SELECT lien.id FROM lien WHERE lien.idTest = ".$_POST["jeu"])[0]->id;
 		//$user = $db->query("SELECT user.id FROM user WHERE user.pseudo = 'admin'")[0]->id;
-		$titre = addslashes($_POST['crea_titre']);
-		$texte = addslashes($_POST['crea_texte']);
+		$titre = $_POST['crea_titre'];
+		$texte = $_POST['crea_texte'];
 		$note = $_POST['crea_note'];
 		$user = $_POST['user'];
 		$date = date("Y-m-d H:i:s");

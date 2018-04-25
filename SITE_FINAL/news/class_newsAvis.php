@@ -131,15 +131,11 @@
 				 <p>'.$this->_texte.'</p>
 				 <p>Ecrit le : '.$this->_date.' par '.$this->_pseudo.'<br/>Pour le jeu '.$this->_jeuDlc.'</p>';
 				
-			echo '<a href="news/form_edit.php?news='.$this->_id.'">Modifier</a>';
+				require_once("supprime/class_supprime.php");
+				$affsuppr = new supprime($this->_id, $this->_titre, "news");
 				
-			require_once("supprime/class_supprime.php");
-			$affsuppr = new supprime($this->_id, $this->_titre, "news");
-			
-			echo '</article>';
+				echo '</article>';
 		}
-		
-		
 	}
 	
 	

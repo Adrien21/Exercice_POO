@@ -16,7 +16,7 @@
 		
 		
 		
-		$maCo->query("INSERT INTO avis (note, texte, idUser, idLien, date) VALUES ('".$_POST['crea_note']."', '".addslashes(htmlspecialchars($_POST['crea_texte']))."', ".intval($_POST['user']).", ".intval($lien).", '".date("Y-m-d H:i:s")."')");
+		$maCo->query("INSERT INTO `avis` (`note`, `texte`, `idUser`, `idLien`, `date`) VALUES ('".$_POST['crea_note']."', '".addslashes(htmlspecialchars($_POST['crea_texte']))."', ".intval($_POST['user']).", ".intval($lien).", '".date("Y-m-d H:i:s")."')");
 		echo "La note de ".$_POST['crea_note']."/20 a bien été donnée au jeu.";
 	?>
 </body>
