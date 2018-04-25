@@ -12,7 +12,7 @@
 		require_once("../include/bdd_connect.php");
 		$maCo = new bddConnect($sql_db, $sql_user, $sql_pass, $sql_server, $sql_type);
 		
-		$lien = $maCo->query("SELECT lien.id FROM lien WHERE lien.idJeuDlc = ".$_POST["jeu"])[0]->id;
+		$lien = $maCo->query("SELECT lien.id FROM lien WHERE lien.idJeuDlc = ".intval($_POST['jeu']))[0]->id;
 		
 		
 		
