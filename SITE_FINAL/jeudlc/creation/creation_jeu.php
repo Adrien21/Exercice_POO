@@ -28,7 +28,7 @@
 		// var_dump("<pre>", $requete, "</pre>");
 	
 		echo "<h1>Succès !</h1> Vous allez être redirigé dans 3 secondes.";
-		header("refresh:3;url=../affichage/affichage_jeux.php");
+		header("refresh:3;url=../../jeudlc.php");
 	?>
 </body>
 </html>
