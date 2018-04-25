@@ -26,7 +26,14 @@ session_start();
                     if ($_SESSION['userGranted'] == true ) {
                 
                 echo "<h3>Bienvenue,  ".$_SESSION['pseudo'].", vous êtes un ".$_SESSION['role']." de GAME THEM ALL!!</h3>";
-                echo "<button type=\"submit\" name='btLogOut'>Se deconnecter</button>" ; 
+//                echo "<form action='index.php'><input type='hidden' name='btLogOut' value='logout'><button type='submit'>Se deconnecter</button></form>" ;   POUR SE DECONNECTER
+//                        
+//                        
+//                        if (isset($_POST['btLogOut'])){
+//                            echo "bidule";
+//                            session_destroy();
+//                            
+//                        }
                 
             }
                 
