@@ -64,5 +64,8 @@
 			
 			<input type="submit" name="Valider" value="<?php if($consoleSelect->id == 0): echo 'Créer'; else: echo 'Modifier'; endif;?>">
 		</form>
-		<a href="./index.php?consoleChoisi=<?=$consoleSelect->id?>">Retour</a>
+        <br><br>
+        <a href="../console.php">Retour à la page des Consoles </a><br><br>
+		<a href="../index.php">Retour à l'Accueil</a>
+        
 

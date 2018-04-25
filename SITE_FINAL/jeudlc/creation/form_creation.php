@@ -29,5 +29,7 @@
 			</select>
 			<input type="submit" name="Créer" value="Créer">
 		</form>
+<br><br>
+        <a href="../../index.php">Retour à l'Accueil</a><br><br>
 	</body>
 </html>
