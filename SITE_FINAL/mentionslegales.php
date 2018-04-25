@@ -2,112 +2,79 @@
 include("template/header.php");
 ?>
 
-<section>
-    <h2>Nos mentions légales</h2>
-    <article>
-    <p>Merci de lire attentivement les présentes modalités d'utilisation du présent site avant de le parcourir. En vous connectant sur ce site, vous acceptez sans réserve les présentes modalités.
-    Editeur du site
+<p style="text-align:center"><span style="color:rgb(255, 0, 0)"><span style="background-color:rgb(211, 211, 211)">Si vous utilisez nos Mentions Légales, vous vous engagez à laisser les liens </span><strong><span style="background-color:rgb(211, 211, 211)">Crédit sans en modifier ni les liens ni les ancres.</span></strong><span style="background-color:rgb(211, 211, 211)"> </span></span><br />
+<span style="color:rgb(255, 0, 0)"><span style="background-color:rgb(211, 211, 211)">Par avance merci pour votre compréhension et le respect du travail effectué par toute l'équipe</span></span></p>
 
-    Site Internet Qualité
-    par Natural-net
-    49 boulevard Antoine Gautier
-    33000 Bordeaux
-    France
-    Tél. : + 33 (0)6 62 79 25 55
-    Fax : + 33 (0)5 40 00 02 66
-    https://www.site-internet-qualite.fr
+<h1>MENTIONS LEGALES :</h1>
 
-    Natural-net est une EURL au capital de 3500€
-    RCS B 497 553 71 - Siret : 49755371900020 - APE : 6201Z
-    N° déclaration CNIL : 1522193
-    Conditions d'utilisation
-    Le site accessible par les url suivants : www.site-internet-qualite.fr est exploité dans le respect de la législation française. L'utilisation de ce site est régie par les présentes conditions générales. En utilisant le site, vous reconnaissez avoir pris connaissance de ces conditions et les avoir acceptées. Celles-ci pourront êtres modifiées à tout moment et sans préavis par la société Natural-net.
-    Natural-net ne saurait être tenu pour responsable en aucune manière d’une mauvaise utilisation du service.
-    Responsable éditorial
-        
-    Eric Emery
-    Site Internet Qualité
-    par Natural-net
-    49 boulevard Antoine Gautier
-    33000 Bordeaux
-    France
-    Tél. : + 33 (0)6 62 79 25 55
-    Fax : + 33 (0)5 40 00 02 66
-    </p>
-    <a href="index.php">Site Wew</a>
-    </article>    
-    <article>
-    <p>
-    Limitation de responsabilité
-    Les informations contenues sur ce site sont aussi précises que possibles et le site est périodiquement remis à jour, mais peut toutefois contenir des inexactitudes, des omissions ou des lacunes. Si vous constatez une lacune, erreur ou ce qui parait être un dysfonctionnement, merci de bien vouloir le signaler par email en décrivant le problème de la manière la plus précise possible (page posant problème, action déclenchante, type d’ordinateur et de navigateur utilisé, …).
+<p style="text-align:justify"><strong>1. Présentation du site :<br />
+ </strong><br />
+Conformément aux dispositions des articles 6-III et 19 de la Loi n° 2004-575 du 21 juin 2004 pour la Confiance dans l'économie numérique, dite L.C.E.N., nous portons à la connaissance des utilisateurs et visiteurs du site : <a href="http://www.republiquedesmangues.fr" target="_blank">www.republiquedesmangues.fr</a> les informations suivantes :</p>
 
-    Tout contenu téléchargé se fait aux risques et périls de l'utilisateur et sous sa seule responsabilité. En conséquence, Natural-net ne saurait être tenu responsable d'un quelconque dommage subi par l'ordinateur de l'utilisateur ou d'une quelconque perte de données consécutives au téléchargement.   
+<p style="text-align:justify"><strong>Informations légales : </strong></p>
 
-    Les photos sont non contractuelles.
+<p style="text-align:justify">Statut du propriétaire : <strong>societe</strong><br />
+Préfixe : <strong>GTA</strong><br />
+Nom de la Société :<strong> GAME THEM ALL</strong><br />
+Adresse : <strong>64 E Rue Sully, 21000 Dijon</strong><br />
+Tél  : <strong>06666666666</strong><br />
+Au Capital de :<strong> 5000000000 €</strong><br />
+SIRET :  <strong>69496846516814   </strong>R.C.S. :<strong> rcs 96841658984</strong><br />
+Numéro TVA intracommunautaire : <strong>68656184</strong><br />
+Adresse de courrier électronique : <strong>leopoldassogba21@gmail.com</strong> <br />
+ <br />
+Le Créateur du site est : <strong>GEORGE ABDEL MOUSTAKI</strong><br />
+Le Responsable de la  publication est : <strong>MYLENE FERMIERE</strong><br />
+Contactez le responsable de la publication : <strong>leopoldassogba21@gmail.com</strong><br />
+Le responsable de la publication est une <strong>personne physique</strong><br />
+<br />
+Le Webmaster est  : <strong>GEORGE ABDEL MOUSTAKI</strong><br />
+Contactez le Webmaster : <strong><a href="mailto:leopoldassogba21@gmail.com?subject=Contact ï¿½ partir des mentions lï¿½gales via le site www.republiquedesmangues.fr">leopoldassogba21@gmail.com</a></strong><br />
+L’hebergeur du site est : <strong>GTA 36 ru du serveur 21666 GOOLGE</strong><br />
+<u><strong>CREDITS :</strong></u> les mentions légales ont étés générées par <strong><a href="https://www.generer-mentions-legales.com">générer des mentions légales</a></strong><br />
+Personnalisez votre <strong><a href="http://www.immopub.fr/boutique/panneau-a-vendre.php">Panneau A vendre personnalisé</a></strong></p>
 
-    Les liens hypertextes mis en place dans le cadre du présent site internet en direction d'autres ressources présentes sur le réseau Internet ne sauraient engager la responsabilité de Natural-net.
-    Litiges
-    Les présentes conditions sont régies par les lois françaises et toute contestation ou litiges qui pourraient naître de l'interprétation ou de l'exécution de celles-ci seront de la compétence exclusive des tribunaux dont dépend le siège social de la société Natural-net. La langue de référence, pour le règlement de contentieux éventuels, est le français.
-    Déclaration à la CNIL
-    Conformément à la loi 78-17 du 6 janvier 1978 (modifiée par la loi 2004-801 du 6 août 2004 relative à la protection des personnes physiques à l'égard des traitements de données à caractère personnel) relative à l'informatique, aux fichiers et aux libertés, le site a fait l'objet d'une déclaration auprès de la Commission nationale de l'informatique et des libertés (www.cnil.fr). 
-    Droit d'accès
-    En application de cette loi, les internautes disposent d’un droit d’accès, de rectification, de modification et de suppression concernant les données qui les concernent personnellement. Ce droit peut être exercé par voie postale auprès de Natural-net 49 Boulevard Antoine Gautier 33000 Bordeaux ou par voie électronique à l’adresse email suivante : contact@natural-net.fr.
-    Les informations personnelles collectées ne sont en aucun cas confiées à des tiers hormis pour l’éventuelle bonne exécution de la prestation commandée par l’internaute.
-    Confidentialité
-    Vos données personnelles sont confidentielles et ne seront en aucun cas communiquées à des tiers hormis pour la bonne exécution de la prestation.
-    Propriété intellectuelle
+<p style="text-align:justify"> </p>
 
-    Tout le contenu du présent site, incluant, de façon non limitative, les graphismes, images, textes, vidéos, animations, sons, logos, gifs et icônes ainsi que leur mise en forme sont la propriété exclusive de la société Natural-net à l'exception des marques, logos ou contenus appartenant à d'autres sociétés partenaires ou auteurs.
-    Toute reproduction, distribution, modification, adaptation, retransmission ou publication, même partielle, de ces différents éléments est strictement interdite sans l'accord exprès par écrit de Natural-net. Cette représentation ou reproduction, par quelque procédé que ce soit, constitue une contrefaçon sanctionnée par les articles L.3335-2 et suivants du Code de la propriété intellectuelle. Le non-respect de cette interdiction constitue une contrefaçon pouvant engager la responsabilité civile et pénale du contrefacteur. En outre, les propriétaires des Contenus copiés pourraient intenter une action en justice à votre encontre.
+<p style="text-align:justify"><strong>2. Description des services fournis :</strong><br />
+<br />
+Le site <a href="http://www.republiquedesmangues.fr" target="_blank">www.republiquedesmangues.fr</a> a pour objet de fournir une information concernant l’ensemble des activités de la société.<br />
+Le proprietaire du site s’efforce de fournir sur le site <a href="http://www.republiquedesmangues.fr" target="_blank">www.republiquedesmangues.fr</a> des informations aussi précises que possible. Toutefois, il ne pourra être tenue responsable des omissions, des inexactitudes et des carences dans la mise à jour, qu’elles soient de son fait ou du fait des tiers partenaires qui lui fournissent ces informations.<br />
+Tous les informations proposées sur le site <a href="http://www.republiquedesmangues.fr" target="_blank">www.republiquedesmangues.fr</a> sont données à titre indicatif, sont non exhaustives, et sont susceptibles d’évoluer. Elles sont données sous réserve de modifications ayant été apportées depuis leur mise en ligne.<br />
+ </p>
 
-    Natural-net est identiquement propriétaire des "droits des producteurs de bases de données" visés au Livre III, Titre IV, du Code de la Propriété Intellectuelle (loi n° 98-536 du 1er juillet 1998) relative aux droits d'auteur et aux bases de données.
+<p style="text-align:justify"><strong>3. Propriété intellectuelle et contrefaçons :</strong></p>
 
-    Les utilisateurs et visiteurs du site internet peuvent mettre en place un hyperlien en direction de ce site, mais uniquement en direction de la page d’accueil, accessible à l’URL suivante : www.site-internet-qualite.fr, à condition que ce lien s’ouvre dans une nouvelle fenêtre. En particulier un lien vers une sous page (« lien profond ») est interdit, ainsi que l’ouverture du présent site au sein d’un cadre (« framing »), sauf l'autorisation expresse et préalable de Natural-net.
+<p style="text-align:justify"><br />
+Le proprietaire du site est propriétaire des droits de propriété intellectuelle ou détient les droits d’usage sur tous les éléments accessibles sur le site, notamment les textes, images, graphismes, logo, icônes, sons, logiciels…<br />
+Toute reproduction, représentation, modification, publication, adaptation totale ou partielle des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite, sauf autorisation écrite préalable à l'email : <a href="mailto:leopoldassogba21@gmail.com?subject=Contact ï¿½ partir des mentions lï¿½gales via le site www.republiquedesmangues.fr"><strong>leopoldassogba21@gmail.com</strong></a> .<br />
+Toute exploitation non autorisée du site ou de l’un quelconque de ces éléments qu’il contient sera considérée comme constitutive d’une contrefaçon et poursuivie conformément aux dispositions des articles L.335-2 et suivants du Code de Propriété Intellectuelle.<br />
+ </p>
 
-    Pour toute demande d'autorisation ou d'information, veuillez nous contacter par email : contact@natural-net.fr. Des conditions spécifiques sont prévues pour la presse.
+<p style="text-align:justify"><strong>4. Liens hypertextes et cookies :</strong><br />
+<br />
+Le site <a href="http://www.republiquedesmangues.fr" target="_blank">www.republiquedesmangues.fr</a> contient un certain nombre de liens hypertextes vers d’autres sites (partenaires, informations …) mis en place avec l’autorisation de le proprietaire du site . Cependant, le proprietaire du site n’a pas la possibilité de vérifier le contenu des sites ainsi visités  et décline donc toute responsabilité de ce fait quand aux risques éventuels de contenus illicites.<br />
+<br />
+L’utilisateur est informé que lors de ses visites sur le site <a href="http://www.republiquedesmangues.fr" target="_blank">www.republiquedesmangues.fr</a>, un ou des cookies sont susceptible de s’installer automatiquement sur son ordinateur. Un cookie est un fichier de petite taille, qui ne permet pas l’identification de l’utilisateur, mais qui enregistre des informations relatives à la navigation d’un ordinateur sur un site. Les données ainsi obtenues visent à faciliter la navigation ultérieure sur le site, et ont également vocation à permettre diverses mesures de fréquentation.<br />
+<br />
+Le paramétrage du logiciel de navigation permet d’informer de la présence de cookie et éventuellement, de refuser de la manière décrite à l’adresse suivante : www.cnil.fr<br />
+Le refus d’installation d’un cookie peut entraîner l’impossibilité d’accéder à certains services. L’utilisateur peut toutefois configurer son ordinateur de la manière suivante, pour refuser l’installation des cookies :<br />
+Sous Internet Explorer : onglet outil / options internet. Cliquez sur Confidentialité et choisissez Bloquer tous les cookies. Validez sur Ok.<br />
+Sous Netscape : onglet édition / préférences. Cliquez sur Avancées et choisissez Désactiver les cookies. Validez sur Ok.<br />
+ </p>
 
-    Par ailleurs, la mise en forme de ce site a nécessité le recours à des sources externes dont nous avons acquis les droits ou dont les droits d'utilisation sont ouverts : Pioneer - Multi-Purpose HTML 5 / CSS 3 Corporate Template.   
+<p style="text-align:justify"><strong>5. Protection des biens et des personnes - gestion des données personnelles :</strong><br />
+<br />
+Utilisateur : Internaute se connectant, utilisant le site susnommé : <a href="http://www.republiquedesmangues.fr" target="_blank">www.republiquedesmangues.fr</a><br />
+En France, les données personnelles sont notamment protégées par la loi n° 78-87 du 6 janvier 1978, la loi n° 2004-801 du 6 août 2004, l'article L. 226-13 du Code pénal et la Directive Européenne du 24 octobre 1995.</p>
 
+<p style="text-align:justify">Sur le site <a href="http://www.republiquedesmangues.fr" target="_blank">www.republiquedesmangues.fr</a>, le proprietaire du site ne collecte des informations personnelles relatives à l'utilisateur que pour le besoin de certains services proposés par le site <a href="http://www.republiquedesmangues.fr" target="_blank">www.republiquedesmangues.fr</a>. L'utilisateur fournit ces informations en toute connaissance de cause, notamment lorsqu'il procède par lui-même à leur saisie. Il est alors précisé à l'utilisateur du site <a href="http://www.republiquedesmangues.fr" target="_blank">www.republiquedesmangues.fr</a> l’obligation ou non de fournir ces informations.<br />
+Conformément aux dispositions des articles 38 et suivants de la loi 78-17 du 6 janvier 1978 relative à l’informatique, aux fichiers et aux libertés, tout utilisateur dispose d’un droit d’accès, de rectification, de suppression et d’opposition aux données personnelles le concernant. Pour l’exercer, adressez votre demande à <a href="http://www.republiquedesmangues.fr" target="_blank">www.republiquedesmangues.fr</a> par email : email du webmaster ou  en effectuant sa demande écrite et signée, accompagnée d’une copie du titre d’identité avec signature du titulaire de la pièce, en précisant l’adresse à laquelle la réponse doit être envoyée.</p>
 
-        Créé le : 24/05/2016
-        Auteur : Dankov
-        E-mail de l'auteur : dankov.theme@gmail.com
+<p style="text-align:justify">Aucune information personnelle de l'utilisateur du site <a href="http://www.republiquedesmangues.fr" target="_blank">www.republiquedesmangues.fr</a> n'est publiée à l'insu de l'utilisateur, échangée, transférée, cédée ou vendue sur un support quelconque à des tiers. Seule l'hypothèse du rachat du site <a href="http://www.republiquedesmangues.fr" target="_blank">www.parapubliques.fr</a> à le proprietaire du site et de ses droits permettrait la transmission des dites informations à l'éventuel acquéreur qui serait à son tour tenu de la même obligation de conservation et de modification des données vis à vis de l'utilisateur du site <a href="http://www.republiquedesmangues.fr" target="_blank">www.republiquedesmangues.fr</a>.<br />
+Le site <a href="http://www.republiquedesmangues.fr" target="_blank">www.republiquedesmangues.fr</a> est déclaré à la CNIL sous le numéro 984984949848494.</p>
 
-    Hébergeur
-    Kiubi
-    Plateforme de gestion et création de sites internet
-    www.kiubi.com
-    contact@kiubi.com
-    Conditions de service
-    Ce site est proposé en langages HTML5 et CSS3, pour un meilleur confort d'utilisation et un graphisme plus agréable, nous vous recommandons de recourir à des navigateurs modernes comme Safari, Firefox, Chrome,...
-    Informations et exclusion
-    Natural-net met en œuvre tous les moyens dont elle dispose, pour assurer une information fiable et une mise à jour fiable de ses sites internet. Toutefois, des erreurs ou omissions peuvent survenir. L'internaute devra donc s'assurer de l'exactitude des informations auprès de Natural-net, et signaler toutes modifications du site qu'il jugerait utile. Natural-net n'est en aucun cas responsable de l'utilisation faite de ces informations, et de tout préjudice direct ou indirect pouvant en découler.
-    Cookies
-    Pour des besoins de statistiques et d'affichage, le présent site utilise des cookies. Il s'agit de petits fichiers textes stockés sur votre disque dur afin d'enregistrer des données techniques sur votre navigation. Certaines parties de ce site ne peuvent être fonctionnelle sans l’acceptation de cookies.
-    Liens hypertextes
-    Les sites internet de Natural-net peuvent offrir des liens vers d’autres sites internet ou d’autres ressources disponibles sur Internet.
-
-    Natural-net ne dispose d'aucun moyen pour contrôler les sites en connexion avec ses sites internet. Natural-net ne répond pas de la disponibilité de tels sites et sources externes, ni ne la garantit. Elle ne peut être tenue pour responsable de tout dommage, de quelque nature que ce soit, résultant du contenu de ces sites ou sources externes, et notamment des informations, produits ou services qu’ils proposent, ou de tout usage qui peut être fait de ces éléments. Les risques liés à cette utilisation incombent pleinement à l'internaute, qui doit se conformer à leurs conditions d'utilisation.
-
-    Les utilisateurs, les abonnés et les visiteurs des sites internet de Natural-net ne peuvent mettre en place un hyperlien en direction de ce site sans l'autorisation expresse et préalable de Natural-net.
-
-    Dans l'hypothèse où un utilisateur ou visiteur souhaiterait mettre en place un hyperlien en direction d’un des sites internet de Natural-net, il lui appartiendra d'adresser un email accessible sur le site afin de formuler sa demande de mise en place d'un hyperlien. Natural-net se réserve le droit d’accepter ou de refuser un hyperlien sans avoir à en justifier sa décision.
-    Recherche
-    En outre, le renvoi sur un site internet pour compléter une information recherchée ne signifie en aucune façon que Natural-net reconnaît ou accepte quelque responsabilité quant à la teneur ou à l'utilisation dudit site.
-    Précautions d'usage
-    Il vous incombe par conséquent de prendre les précautions d'usage nécessaires pour vous assurer que ce que vous choisissez d'utiliser ne soit pas entaché d'erreurs voire d'éléments de nature destructrice tels que virus, trojans, etc....
-    Responsabilité
-    Aucune autre garantie n'est accordée au client, auquel incombe l'obligation de formuler clairement ses besoins et le devoir de s'informer. Si des informations fournies par Natural-net apparaissent inexactes, il appartiendra au client de procéder lui-même à toutes vérifications de la cohérence ou de la vraisemblance des résultats obtenus. Natural-net ne sera en aucune façon responsable vis à vis des tiers de l'utilisation par le client des informations ou de leur absence contenues dans ses produits y compris un de ses sites Internet.   
-    </p>
-    </article> 
-     <article>
-    <p>     
-    Contactez-nous
-    Natural-net est à votre disposition pour tous vos commentaires ou suggestions. Vous pouvez nous écrire en français par courrier électronique à : contact@natural-net.fr.
-    </p>
-    </article>   
-</section>
-
+<p style="text-align:justify">Les bases de données sont protégées par les dispositions de la loi du 1er juillet 1998 transposant la directive 96/9 du 11 mars 1996 relative à la protection juridique des bases de données.</p>
 <?php
 include("template/footer.php");
 ?>
