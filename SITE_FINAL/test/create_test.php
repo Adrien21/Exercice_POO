@@ -23,6 +23,8 @@
 		$nouvtest = new test(NULL, $titre, $date, $texte, $note, $user);
 		$requete = "INSERT INTO `test` (`titre`, `texte`, `note`, `date`, idUser) VALUES ('".$nouvtest->titre."', '".$nouvtest->texte."', ".$nouvtest->note.", '".$nouvtest->date."', " .$nouvtest->pseudo .")";
 		$db->query($requete);
+		$requetelien = "INSERT INTO `lien` (`idTest`, `idJeuDlc`, `idConsole`) VALUES ((SELECT id FROM test ORDER BY ID DESC LIMIT 1), ".$_POST['jeu'].", 1)";
+		$db->query($requetelien);
 		echo 'Le test "'.$nouvtest->titre.'" a bien été créé.</br></br>';
 	?>
 
