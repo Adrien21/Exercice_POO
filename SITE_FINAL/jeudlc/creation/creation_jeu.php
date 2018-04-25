@@ -23,9 +23,17 @@
 
 		$nouvjeu = new jeuDlc(NULL, $nom, $editeur, $dev, $date, $prix, $pegi, $description, $jeuparent);
 		// var_dump("<pre>", $nouvjeu, "</pre>");
-		$requete = "INSERT INTO `jeudlc` (`nom`, `editeur`, `dev`, `dateSortie`, `prix`, `pegi`, `description`, `idJeuParent`) VALUES ('".addslashes($nouvjeu->nom)."', '".$nouvjeu->editeur."', '".$nouvjeu->dev."', '".$nouvjeu->dateSortie."', '".$nouvjeu->prix."', '".$nouvjeu->pegi."', '".addslashes($nouvjeu->description)."', ".$nouvjeu->idJeuParent.")";
+		$requete = "INSERT INTO jeudlc (nom, editeur, dev, dateSortie, prix, pegi, description, idJeuParent) VALUES ('".addslashes($nouvjeu->nom)."', '".$nouvjeu->editeur."', '".$nouvjeu->dev."', '".$nouvjeu->dateSortie."', '".$nouvjeu->prix."', '".$nouvjeu->pegi."', '".addslashes($nouvjeu->description)."', ".$nouvjeu->idJeuParent.")";
 		$db->query($requete);
-		// var_dump("<pre>", $requete, "</pre>");
+		
+		//recup de l'id jeu
+		$requete = 'SELECT id FROM jeudlc WHERE nom="'.$nouvjeu->nom.'" and editeur="'.$nouvjeu->editeur.'" and dev="'.$nouvjeu->dev.'"';
+		$select = $db->query($requete);
+				
+		foreach ($_POST['crea_console'] as $maConsole){
+			$requete = 'INSERT INTO lien (idJeuDlc, idConsole) VALUES ('.$select[0]->id.', '.$maConsole.')';
+			$db->query($requete);
+		};
 	
 		echo "<h1>Succès !</h1> Vous allez être redirigé dans 3 secondes.";
 		header("refresh:3;url=../../jeudlc.php");
