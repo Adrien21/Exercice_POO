@@ -13,10 +13,10 @@
 		$maCo = new bddConnect($sql_db, $sql_user, $sql_pass, $sql_server, $sql_type);
 		
 		$lien = $maCo->query("SELECT lien.id FROM lien WHERE lien.idJeuDlc = ".$_POST["jeu"])[0]->id;
-		$user = $maCo->query("SELECT user.id FROM user WHERE user.pseudo = 'admin'")[0]->id;
+		//$user = $maCo->query("SELECT user.id FROM user WHERE user.pseudo = 'admin'")[0]->id;
 		
 		
-		$maCo->query("INSERT INTO `news` (`titre`, `texte`, `idUser`, `idLien`, `date`) VALUES ('".$_POST['crea_titre']."', '".$_POST['crea_texte']."', ".intval($user).", ".intval($lien).", '".date("Y-m-d H:i:s")."')");
+		$maCo->query("INSERT INTO `news` (`titre`, `texte`, `idUser`, `idLien`, `date`) VALUES ('".$_POST['crea_titre']."', '".$_POST['crea_texte']."', ".intval($_POST['user']).", ".intval($lien).", '".date("Y-m-d H:i:s")."')");
 		echo 'La news "'.$_POST['crea_titre'].'" a bien été créée.';
 	?>
 </body>
